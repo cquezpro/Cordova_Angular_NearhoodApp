@@ -1,0 +1,7 @@
+<section id="languageSelect">
+	<p><i class="icon-globe"></i> language - kieli</p>
+	
+	<select ng-model="currentLanguage" ng-options="language.code as language.name for language in languages" ng-change="changeLanguage(currentLanguage)">
+	</select>
+
+</section>

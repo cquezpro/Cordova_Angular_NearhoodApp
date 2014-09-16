@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html ng-app="nearhoodApp">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+
+        <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/purecss/src/base/css/base.css" />
+        <link rel="stylesheet" href="bower_components/purecss/src/buttons/css/buttons-core.css" />
+        <link rel="stylesheet" href="bower_components/purecss/src/buttons/css/buttons.css" />
+        <link rel="stylesheet" href="bower_components/purecss/src/forms/css/forms.css" />
+        <link rel="stylesheet" href="bower_components/leaflet-dist/leaflet.css" />
+        <link rel="stylesheet" href="bower_components/leaflet.markerclusterer/dist/MarkerCluster.Default.css" />
+        <link rel="stylesheet" href="bower_components/leaflet.markerclusterer/dist/MarkerCluster.css" />
+        <link rel="stylesheet" href="bower_components/pikaday/css/pikaday.css" />
+        <!-- endbower -->
+        <!-- endbuild -->
+        
+        <!-- build:css(.tmp) styles/nearhood.css -->
+        <link rel="stylesheet" href="styles/nearhood.css">
+        <!-- endbuild -->
+
+        <title>nearhood</title>
+    </head>
+    <body>
+        <div id="iOS7topBar"></div>
+
+        <main-menu></main-menu>
+        <notify></notify>
+
+        <!-- <div id="newMessageButton" ui-sub-sref=".new">
+            <div class="wrapper1"><div class="wrapper2">
+                <span class="icon-stack">
+                  <i class="icon-comment icon-stack-base"></i>
+                  <i class="icon-plus icon-light"></i>
+                </span>
+            </div></div>
+        </div> -->
+    
+        <section id="view" ui-view></section>
+        
+
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/es5-shim/es5-shim.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="i18n/angular-locale_fi.js"></script>        
+        <script src="bower_components/angular-touch/angular-touch.js"></script>
+        <script src="bower_components/hammerjs/hammer.js"></script>
+        <script src="bower_components/angular-hammer/angular-hammer.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-gettext/dist/angular-gettext.js"></script>
+        <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-cache/dist/angular-cache.min.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-local-storage/angular-local-storage.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/leaflet-dist/leaflet.js"></script>
+        <script src="bower_components/leaflet.markerclusterer/dist/leaflet.markercluster.js"></script>
+        <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
+        <script src="bower_components/GALocalStorage/GALocalStorage.js"></script>
+        <script src="bower_components/ng-cordova/dist/ng-cordova.js"></script>
+        <script src="bower_components/moment/moment.js"></script>
+        <script src="bower_components/fastclick/lib/fastclick.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+
+        <script src="scripts/pickaday.js"></script>
+
+
+        <script type="text/javascript" src="deviceready.js"></script>
+        <script src="app.js"></script>
+        <script src="scripts/services/server-provider-svc.js"></script>
+        <script src="config.js"></script>
+        <script src="run.js"></script>
+
+        <script src="scripts/services/menu-svc.js"></script>
+
+        <script src="scripts/controllers/single-ctrl.js"></script>
+        <script src="scripts/controllers/messages-ctrl.js"></script>
+        <script src="scripts/controllers/login-ctrl.js"></script>
+        <script src="scripts/controllers/districts-ctrl.js"></script>
+        <script src="scripts/controllers/register-ctrl.js"></script>
+        <script src="scripts/controllers/feedback-ctrl.js"></script>
+        <script src="scripts/controllers/info-ctrl.js"></script>
+        <script src="scripts/controllers/user-ctrl.js"></script>
+        <script src="scripts/controllers/welcome-ctrl.js"></script>
+        <script src="scripts/controllers/new-message-ctrl.js"></script>
+        <script src="scripts/controllers/new-location-ctrl.js"></script>
+        <script src="scripts/controllers/search-location-ctrl.js"></script>
+        <script src="scripts/controllers/mapview-ctrl.js"></script>
+
+        <script src="scripts/services/user-svc.js"></script>
+        <script src="scripts/services/district-svc.js"></script>
+        <script src="scripts/services/welcome-svc.js"></script>
+        <script src="scripts/services/os-svc.js"></script>
+        <script src="scripts/services/language-svc.js"></script>
+        <script src="scripts/services/ui-svc.js"></script>
+
+        <!-- todo: deprecate --><script src="scripts/directives/bodyText.js"></script>
+
+        <script src="scripts/directives/swipeForMenu.js"></script>
+        <script src="scripts/directives/menu.js"></script>
+        <script src="scripts/directives/misc.js"></script>
+        <script src="scripts/directives/sideview.js"></script>
+        <script src="scripts/directives/notify.js"></script>
+        <script src="scripts/directives/lang.js"></script>
+        <script src="scripts/directives/infinite-scroll.js"></script>
+        <script src="scripts/directives/new-message.js"></script>
+        <script src="scripts/directives/new-message-type-swiper.js"></script>
+        <script src="scripts/directives/photo-uploader.js"></script>
+        <script src="scripts/directives/pikaday-dre.js"></script>
+        <script src="scripts/directives/new-event-dre.js"></script>
+        <script src="scripts/directives/location-block-dre.js"></script>
+        <script src="scripts/directives/new-classified-dre.js"></script>
+        <script src="scripts/directives/new-issue-dre.js"></script>
+
+        <script src="scripts/translations.js"></script>
+        <script src="scripts/filters/filters.js"></script>
+
+        <script src="scripts/models/message-model.js"></script>
+        <script src="scripts/models/comment-model.js"></script>
+        <!-- endbuild -->
+
+        <!--<script src="http://debug.phonegap.com/target/target-script-min.js#appnearhoodnet"></script>-->
+        
+        <script src="scripts/init.js"></script>
+        <script src="phonegap.js"></script>
+    </body>
+</html>

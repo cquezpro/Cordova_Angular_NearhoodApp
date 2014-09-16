@@ -1,0 +1,99 @@
+<div>
+
+	<input type="text" ng-model="message.event_name" placeholder="{{'Event name'|translate}}" required>
+	<textarea ng-model="message.event_description" placeholder="{{'Yard sale or a neighbourhood meeting next week? Create an event and invite everyone in the neighbourhood!'|translate}}" sk-focus-handler required></textarea>
+
+	<div class="times">
+		<div class="timeblock">
+			<i class="icon-calendar"></i>
+			<i class="icon-arrow-right"></i>
+			<div 
+				class="date required" 
+				pikaday 
+				mindate="message.datetime"
+				date="message.event_date" 
+				>
+			</div>
+			<i class="icon-time"></i>
+			<select 
+				class="hours required" 
+				hours-select 
+				ng-model="hoursStart"
+				ng-change="ctrl.changeHoursStart()"
+				ng-options="hour as hour for hour in hoursList">
+			</select>
+			
+			  <i class="icon-plus-sign show-more-controls" style="margin-top:0;" ng-hide="ctrl.morecontrols" ng-click="ctrl.morecontrols=!ctrl.morecontrols"></i>
+			
+		</div>
+		<div style="height:1px;width:100%;clear:both"></div>
+		
+		<section ng-show="ctrl.morecontrols">
+			<div class="pure-button event-end-time" ng-click="message.hasending=true;" ng-hide="message.hasending">
+				<i class="icon-calendar"></i>
+				<i class="icon-arrow-left"></i> <span translate>Add ending time</span>
+			</div>
+			<div class="clearfix" style="height: 5px"></div>
+	
+			<div class="timeblock" ng-show="message.hasending">
+				<i class="icon-calendar"></i>
+				<i class="icon-arrow-left"></i>
+				<div pikaday 
+				 	class="date required"
+					date="message.event_end_date" 
+					mindate="message.event_date"></div>
+				<i class="icon-time"></i>
+				<select 
+					class="hours required" 
+					hours-select 
+					ng-model="hoursEnd"
+					ng-change="ctrl.changeHoursEnd()"
+					ng-options="hour as hour for hour in hoursList">
+				</select>
+				<div class="x" ng-click="message.hasending=false;" style="margin-top:2px;margin-left:10px"><i class="icon-remove"></i></div>
+			</div>
+
+			<div style="height:7px;width:100%;clear:both"></div>
+
+
+
+			<div class="switches" style="margin-top: -10px;">
+				<div class="pure-button event-recurs" 
+					ng-class="{selected: message.event_recurs}" 
+					ng-click="message.event_recurs = !message.event_recurs">
+					<i class="icon-check-empty icon-large marker-off"></i>
+					<i class="icon-check icon-large marker-on"></i>
+					<span class="ng-scope" translate>Event recurs</span>
+				</div>
+			</div>
+
+			<div style="margin-left: 8px;float:left;width:auto;clear:none;width:100%" 
+				class="timeblock"
+				ng-show="message.event_recurs">
+				
+				<select required
+					style="width:48%; float:left; padding:0; padding-left: 5px; line-height:28px; margin-right:10px"
+					ng-model="message.event_recurs_interval"
+					ng-options="opt.value as opt.name for opt in recurringTypes">
+				</select>
+	
+				<div pikaday 
+					style="float:left;margin-right:5px"
+				 	class="date required"
+					date="message.event_date_until"
+					mindate="message.event_date">
+				</div>
+				<div style="float:left;margin-top:3px;line-height:27px;font-size:14px;color:#fff;" translate>until</div>
+				
+			</div>
+		</section>
+		</div>
+
+
+	<div style="height:10px;width:100%;clear:both"></div>
+	
+	<location-block messagedata="message"></location-block>
+	
+	<div style="height:1px;width:100%;clear:both"></div>
+
+</div>

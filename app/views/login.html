@@ -1,0 +1,54 @@
+
+    <section id="login">
+
+        <header id="topBar">
+        
+            <div id="closeModal" class="cornerButton" ng-click="closeSideview()">
+                <span class="icon-stack">
+                  <i class="icon-sign-blank icon-stack-base"></i>
+                  <i class="icon-arrow-left icon-light"></i>
+                </span>
+            </div>
+        
+            <h2 translate>Login</h2>
+        
+        </header>
+    
+        <section class="modal">
+        <div class="wrapper pure-form">
+        
+        <div id="loginPane">
+        
+            <section>    
+                <button class="pure-button pure-input-1 pure-button-primary" ng-click="login.loginFb()"><i class="icon-facebook-sign"></i> <span translate>Login with Facebook-account</span></button>
+            </section>    
+   
+           <section>
+           
+               <h3 translate>Login with Nearhood account</h3>
+                <form class="pure-form" ng-submit="login.login()" id="loginForm">
+                    <fieldset class="pure-group">
+                        <input 
+                            type="email" name="email" name="email" class="pure-input-1" placeholder="{{'Email address'|translate}}"
+                            ng-model="login.data.email"
+                            focus-handler
+                            >
+                        <input type="password" name="password" ng-model="login.data.password" class="pure-input-1" placeholder="{{'Password'|translate}}">
+                    </fieldset>
+                
+                    <button class="pure-button pure-input-1 pure-button-primary" translate>Login</button>
+    
+                </form>
+                <div style="color:white; line-height:40px; text-align:center" ng-show="login.error" translate>Wrong email or password :/</div>
+            </section>
+            
+            <section>        
+                <h3 translate>Haven't registered yet?</h3>
+                <button class="pure-button pure-input-1" ng-click="login.toRegister()" translate>Create an account</button>            
+            </section>   
+            
+        </div>                     
+        </div>
+        </section>
+    
+    </section>

@@ -1,0 +1,46 @@
+    <header id="topBar">
+    
+        <div id="closeModal" class="cornerButton" ng-click="closeSideview()">
+            <span class="icon-stack">
+              <i class="icon-sign-blank icon-stack-base"></i>
+              <i class="icon-arrow-left icon-light"></i>
+            </span>
+        </div>
+    
+        <h2 translate>Feedback</h2>
+    
+    </header>
+    
+
+    
+    <section id="feedback" class="modal">
+    <div class="wrapper">
+    
+    
+    <div class="main">
+    
+        
+        <form class="pure-form">
+        
+            <textarea class="pure-input-1" ng-model="feedback.data.body" id="feedbackBody" placeholder="{{'Your feedback'|translate}}" focus-handler></textarea>
+            
+        <fieldset ng-if="!user.loggedIn" class="pure-group">
+            <input class="pure-input-1" type="text" ng-model="feedback.data.name" placeholder="{{'Your name'|translate}}" />
+            <input class="pure-input-1" type="email" placeholder="{{'Your email'|translate}}" ng-model="feedback.data.email" />
+        </fieldset>
+
+
+        
+        <footer>
+            <a class="pure-button pure-button-primary pure-input-1" ng-click="feedback.send()" ng-hide="sendingStatus.sending" translate>Send your feedback</a>
+            <a class="pure-button pure-button-disabled pure-input-1" ng-show="sendingStatus.sending"><i class="icon-spinner icon-spin icon-large"></i></a>
+        </footer>
+    
+        
+        </form>
+    </div>
+    
+    </div>
+    </section>
+
+

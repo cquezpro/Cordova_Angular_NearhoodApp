@@ -1,0 +1,54 @@
+<div id="user" 
+    class="card content" 
+    swipe-for-menu
+    toggle-topmenu 
+    top-menu-threshold="60">
+    
+    <div class="wrapper pure-form">
+
+        <header id="topBar">
+            <h2><span translate>User info</span></h2>
+        </header>
+            
+        <section ng-if="user.service.isLoggedIn()">
+            <p class="currentUser"><img ng-src="{{user.service.data.imgThumbUrl}}" /> <span translate>You've been logged in as</span><br /><b>{{user.service.data.name}}</b>.</p>
+            
+            <!-- 
+            DEPRECATING UNSPECIFIED FEATURE
+
+            <section ng-if="hasOrgs()">
+                <h3 translate>Switch to another account</h3>
+
+                <ul class="userlist personal" ng-if="user.data.type != 'individual'">
+                    <li ng-click="changeToPersonal()"><img ng-src="{{user.data.personalAccount.imgThumbUrl}}" /> {{user.data.personalAccount.name}}</li>
+                </ul>
+                <ul class="userlist" ng-class="{personalAbove: user.data.type != 'individual'}" ng-if="user.data.orgs">
+                    <li ng-repeat="org in user.data.orgs" ng-click="changeToOrg('{{org._id}}', $index);" ng-hide="user.orgId == org._id">
+                        <img ng-src="{{org.profile_photo_thumb_url}}" /> {{org.full_name}}
+                    </li>
+                </ul>
+                
+            </section> -->
+            
+            <button class="pure-button pure-input-1 pure-button-primary" ng-click="user.logout()"><i class="icon-signout icon-large"></i> <span translate>Log out</span></button>
+            
+        </section>
+            
+        <section ng-if="!user.service.isLoggedIn()">
+             <p translate><b>You are not logged in to Nearhood.</b> You can read the messages without logging in, but to participate yourself, please log in</p>
+             <button class="pure-button pure-input-1 pure-button-primary" ui-sref="user.login"><i class="icon-signin icon-large"></i> <span translate>Log in</span></button>
+
+        <p translate>If you haven't yet registered, you can do it here!</p>
+
+        <button class="pure-button pure-button-primary pure-input-1" ui-sref="user.register"><i class="icon-edit icon-large"></i> <span translate>Register</span></a>
+
+            
+        </section>
+        
+    	<choose-language></choose-language>
+
+    </div><!-- /wrapper -->
+</div><!--/content -->
+
+<div id="sideview" sideview ui-view ng-class="{'hascontent':stateLevel>0}">
+</div>

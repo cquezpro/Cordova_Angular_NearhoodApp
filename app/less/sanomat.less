@@ -1,0 +1,1017 @@
+/* 
+========= SANOMAT, LISTVIEW ===
+*/
+
+#messages H1 {
+	font-size: 20px;
+	color: #444;
+	.sansSerif600;
+	margin: -7px 20px -31px 50px;
+	line-height: 40px;
+	height: 40px;
+	span {
+	    display: inline-block;
+	    vertical-align: middle;
+	    line-height: 21px;
+	}
+}
+
+#messageList {
+    padding-bottom: 100px;
+}
+
+
+#messages .pure-form {
+    padding-bottom: 80px;
+}
+
+
+#messages h2.more-from-same {
+    @font-size: 18;
+    .setFontSize;
+    .setMarginTop(0.5);
+    .setMarginBottom(1.5);
+    position: relative;
+    text-align: center;
+    color: @dark3;
+}
+
+#messages h2.more-from-same I {
+    padding-right: 0.5em;
+    margin-right: 0.25em;
+    border-right: 1px dotted @light1;
+    left: 0;
+    font-size: 120%;
+}
+
+
+.tile {
+    position: relative;
+    @font-size: 16;
+    .setMarginBottom();    
+    padding: 0;
+    background-color: #fff;
+    .box-shadow(2px 2px 4px rgba(0, 0, 0, 0.15));
+    color: #555; 
+}
+
+#messageList .tile:active {
+    border-color: @dark2;
+}
+
+#messageList .reload {
+    position: absolute;
+    right: 22px;
+    top: 20px;
+    color: #A1A1A1;
+    font-size: 20px;
+}
+
+.singlesanom {
+
+}
+
+.deleted { // for messages deleted by admins
+    .opacity(30);
+}
+
+.singlesanom>A{
+    color: #555;    
+}
+
+.articlehead {    
+    @font-size: 16; //just for getting the padding right
+    .setHorizontalPadding();
+    .setMarginBottom(0.5);
+    color: @accent1;
+    text-align: center;
+    line-height: 0.6em;
+}
+
+.articlehead B {
+	@font-size: 16;
+	.setFontSize();
+	color: @inverse;
+	height: 30px;
+	width: 30px;
+	border-radius: 20px;
+	position: absolute;
+	top: -0.6em;
+	text-align: center;
+	left: 45%;
+}
+
+.articlehead B I {
+	margin-top: 7px;
+	display: block;
+	text-align: center;
+}
+
+.articlehead H4 {
+	.sansSerif800;
+	@font-size: 14;
+	.setFontSize();
+	.setPaddingTop(1);
+	margin: 0;
+	text-transform: uppercase;
+	text-align: center;
+	display: inline-block;
+}
+
+.sanom .articlehead B {
+    background-color: @color_sanom;
+}
+
+.sanom .articlehead {
+    color: @color_sanom;
+}
+
+.pick .articlehead B {
+    background-color: @color_pick;
+}
+
+.pick .articlehead {
+    color: @color_pick;
+}
+
+.event .articlehead B {
+    background-color: @color_event;
+}
+
+.event .articlehead {
+    color: @color_event;
+}
+
+.classified .articlehead B {
+    background-color: @color_classified;
+}
+
+.classified .articlehead {
+    color: @color_classified;
+}
+
+.photopick .articlehead B {
+    background-color: @color_pick;
+}
+
+.photopick .articlehead {
+    color: @color_pick;
+}
+
+.issue .articlehead B {
+    background-color: @color_issue;
+}
+
+.issue .articlehead {
+    color: @color_issue;
+}
+
+
+.photopick .msg P {
+    color: @color_pick;
+}
+
+.issue .location {
+	color: @color_issue;
+	margin-bottom: 0;
+}
+
+.issue .location I {
+    margin-right: 0.6em;
+}
+
+.issue .status {
+    margin-top: 0;
+    color: @color_issue;
+}
+
+.issue .status I {
+    margin-right: 0.2em;
+}
+
+
+.comment .neighbourinfo {
+    float: left;
+    margin-left: 1.5em;
+    margin-right: 0;
+}
+
+.comment .articlehead b {
+    right: 1.25em;
+}
+
+.comment .articlehead H4 {
+    margin-left: 0;
+    text-align: right;
+    margin-right: 2em;
+    .sansSerif600;
+}
+
+.comment.sanom .articlehead b {
+    background-color: @bgcolor_sanom;
+    color: @color_sanom;
+    border: 1px dotted @color_sanom;
+}
+.comment.event .articlehead b {
+    background-color: @bgcolor_event;
+    color: @color_event;
+    border: 1px dotted @color_event;
+}
+
+.comment.classified .articlehead b {
+    background-color: @bgcolor_classified;
+    color: @color_classified;
+    border: 1px dotted @color_classified;
+}
+.comment.pick .articlehead b {
+    background-color: white;
+    color: @color_pick;
+    border: 1px dotted @color_pick;
+}
+
+.singlesanom H3 {
+    @font-size: 16;
+    .setFontSize();
+    .sansSerif800;
+    margin: 0;
+    text-transform: none;
+    color: @accent1;
+}
+
+.singlesanom.sanom H3 {
+    color: @color_sanom;
+}
+.singlesanom.event H3 {
+    color: @color_event;
+}
+.singlesanom.classified H3 {
+    color: @color_classified;
+}
+.singlesanom.pick H3 {
+    color: @color_pick;
+}
+
+.msg {
+    @font-size: 16;
+    .setHorizontalPadding();
+    overflow-x: hidden;
+}
+
+.msg P {
+    overflow-x: hidden;
+    margin-top: 0;
+}
+
+
+.msg IMG {
+    width: 100%;
+    padding-bottom: 0.625em;    
+}
+
+.msg IMG.quoteAndImage {
+    padding-bottom: 0;
+    padding-top: 0;
+    margin-bottom: -5px;
+}
+
+.msg I.icon-quote-left, .msg I.icon-quote-right  {
+    color: @light2;
+}
+
+.msg I.icon-quote-left {
+    margin-right: 0.25em;
+}
+
+.msg I.icon-quote-right {
+    margin-left: 0.25em;
+}
+
+
+.msg P CITE, .comment CITE {
+    font-style: normal;
+    .sansSerif600;
+    color: @accent1;
+}
+
+.extImg {
+    position: relative;
+}
+
+.extImg > I {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.9);
+    right: 10px;
+    font-size: 30px;
+    bottom: 30px;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.neighbourinfo {
+	.sansSerif300;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+.contact {
+    @font-size: 14;
+    .setFontSize();
+    color: @light1;
+    .sansSerif400();
+    .lightBorderTop;
+    .lightBorderBottom;
+    overflow-x: hidden;    
+}
+
+.event-data {
+    @font-size: 16;
+    .setFontSize();
+    .setMarginBottom();
+}
+
+.event-data P  {
+    margin: 0;
+}
+
+.event-data .dtstart, .event-data .dtend {
+	margin: 0;
+    .sansSerif700();
+	color: @color_event;	
+}
+
+.event-data .dtend  {
+    .sansSerif400();
+}
+
+.event-data .dtstart i, .event-data .dtend i {
+    margin-right: 0.15em;
+}
+
+.event-recurring {
+	color: @color_event;	
+    .sansSerif400();
+}
+
+.event-recurring i {
+    margin-right: 0.5em;
+}
+
+.event-data i.icon-time, .event-data .dtend i.icon-time {
+    margin-left: 0.5em;
+}
+
+.event-data .date {
+    display: inline-block;
+    width: 5.5em;
+}
+
+
+.event-data .location {
+	color: @color_event;
+    .sansSerif400();
+    @font-size: 16;
+    .setMarginTop(1);
+}
+
+BLOCKQUOTE {
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+    overflow-x: hidden;    
+    margin: 0;
+    margin-bottom: 1.25em;
+}
+
+BLOCKQUOTE.quoteAndImage {
+    padding-top: 0.5em;
+}
+
+
+BLOCKQUOTE H3 {
+    text-transform: none;
+    .sansSerif600();
+    @font-size: 16;
+    .setFontSize();
+    color: @color_pick;
+}
+
+BLOCKQUOTE P {
+    @font-size: 14;
+    .setFontSize();
+    color: @light1;
+}
+
+BLOCKQUOTE CITE {
+    width: 100%;
+    display: block;
+    text-align: right;
+    @font-size: 12;
+    .setFontSize();
+    color: @accent1;
+    overflow-x: hidden;
+    font-style: normal;
+}
+
+BLOCKQUOTE CITE I {
+    font-size: 1.75em;
+}
+
+.exturl {
+    cursor: pointer;
+    overflow-x: hidden;    
+}
+
+.more  {
+    color: @light1;
+}
+
+.comment-highlight {
+    @font-size: 14;
+    .setFontSize();
+    .setPaddingAll();
+    border-top: 2px solid rgba(204, 204, 204, 0.26);
+    border-bottom: 2px solid rgba(204, 204, 204, 0.38);    
+}
+
+.comment-highlight P {
+    color: @dark3;
+    margin-top: 0;
+    overflow-x: hidden;
+}
+
+.comment-highlight .author {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;    
+    margin-bottom: 0;
+
+}
+
+.comment-highlight I {
+    color: @accent2;
+    margin-right: 0.5em;
+}
+
+.reactions {
+    @font-size: 16; // just for correct padding;
+    .setHorizontalPadding();
+    .setVerticalPadding(0.5);
+    @font-size: 18;
+    .setFontSize();
+    color: lighten(@light1, 10%);
+    background-color: hsla(0,0,80%,0.1);
+}
+
+.comments {
+    .clearfix;
+    float: right;
+}
+
+.likes {
+    .clearfix;
+    @font-size: 16;
+    .setHeight(1);
+}
+
+.like_nums {
+    .sansSerif700;
+    border-right: 1px dotted @light2;
+    float: left;
+    display: block;
+    padding-right: 0.3em;
+    margin-right: 0.3em;
+}
+
+.comments_num {
+    border-left: 1px dotted @light2;
+    float: right;
+    display: block;
+    padding-left: 0.3em;
+    margin-left: 0.3em;
+}
+
+.native_like .action {
+    @font-size: 12;
+    .setFontSize;
+    .sansSerif400();
+}
+
+.just_star, .has_star {
+    display: block;
+    float: left;
+}
+
+#sanomview .logged_to_facebook {
+    opacity: 0.7;
+    -webkit-filter: grayscale(1);
+}
+
+.logged_to_facebook {
+    display: none;
+}
+
+.author {
+    @font-size: 16;
+    .setHorizontalPadding();
+    .setPaddingBottom();
+    .setFontSize();
+    .sansSerif600();
+    line-height: 1em;
+    overflow-x: hidden;    
+    overflow-y: hidden;
+}
+
+.author IMG {
+    height: 1.9em;
+    border-radius: 1.25em;
+    float:left;
+    margin-right: 0.5em;
+}
+
+.pubdate {
+    @font-size: 14;
+    .setFontSize();
+    display: block;
+    margin: 0;
+    color: @dark2;
+    .sansSerif400;
+    line-height: 1.1em;
+}
+
+.pubdate B {
+    .sansSerif400;
+}
+
+.fb-comments {
+    margin-top: 1.25em;
+}
+
+
+#add_to_list {
+    .clearfix;
+    clear: both;
+    width: 100%;
+    text-align: center;
+    .alphaBg(@accent1, 0.11);
+    @font-size: 16;
+    .setFontSize();
+    .setVerticalPadding();
+    .setVerticalMargins(1);
+    .border-radius(0.5em);
+    .sansSerif600;
+    cursor: pointer;    
+ }
+  
+ #no_more_sanoms {
+     display: none;
+     visibility: hidden;
+ }
+
+ #promo {
+    display: block;
+    width: @singleSanomWidth;
+    float: right;
+    background-color: @accent1;
+    background-image: url('/img/noise_transparent2.png');    
+    color: @inverse;
+    @font-size: 16;
+    .setFontSize();
+    .setMarginBottom();
+    margin-right: 1.5%;    
+    border: 1px solid @dark1;
+ }
+  
+ #promo H4 {
+    @font-size: 28;
+    .setFontSize();
+    .setMarginTop(1);
+    text-align: center;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+ }
+ 
+ 
+ #promo H4 I {
+     display: block;
+     .sansSerif300;
+     font-style: normal;
+ }
+ 
+ #promo P {
+     .sansSerif400;
+    color: @accent1;
+    @font-size: 18;
+    .setFontSize();
+    .setHorizontalPadding();
+    .setMarginBottom(0.5);
+ }
+ 
+ #promo FORM, #promo FOOTER {
+     background-color: white;
+     margin: 0;
+ }
+ 
+ #promo FOOTER {
+     @font-size: 16;
+     .setPaddingBottom(1);
+ }
+ 
+ #promo .miniform {
+     @font-size: 16;
+    .setHorizontalMargins();
+    .setPaddingBottom(1);
+}
+ 
+#promo input[type="email"] {
+    @font-size: 12;
+    .setFontSize;
+    width: 67%;
+    border-radius: 5px 0 0 5px;
+    margin-right: -5px;
+    margin-bottom: 0;
+    .setPaddingAll(0.5);    
+} 
+ 
+ #promo .btn {
+    .sansSerif600();
+    @font-size: 14;
+    .setFontSize;
+    background-color: @accent1 !important;
+    background-repeat: repeat-x;
+    background-image: none;
+    color: @inverse !important;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.00);
+    .setPaddingAll(0.5);
+    border-radius: 0 5px 5px 0;
+ }
+ 
+ #promo .btn I {
+     line-height: 1;
+ }
+
+
+#promo_newsletter_thanks {
+   @font-size: 16;
+   .setVerticalPadding();
+   display: none;
+   position: absolute;
+   top: 0;
+}
+
+#promo_newsletter_thanks P {
+    color: white;
+    @font-size: 16;
+    .setFontSize();
+    padding: none;
+    .setHorizontalPadding();
+    .setVerticalMargins();
+}
+
+#promo_newsletter_thanks I {
+    @font-size: 52;
+    .setFontSize();
+    float: left;
+    margin-right: 0.5em;
+    margin-bottom: 0.25em;
+    margin-top: 0.25em;
+}
+
+
+#promo_newsletter_thanks A {
+    color: white;
+}
+ 
+
+#promo_register .btn {
+    border-radius: 5px;
+    margin: 0 auto;
+    display: block;
+    @font-size: 18;
+    .setFontSize;
+}
+
+#promo_post P {
+    @font-size: 16;
+    .setFontSize();
+}
+
+.singlesanom A.more-from-same {
+    @font-size: 14;
+    .setFontSize();
+    .setPaddingAll(0.5);
+    .sansSerif300;
+	background-color: desaturate(lighten(@accent1, 50%),40%);
+	color: @accent1;
+    text-decoration: none;
+    display: block;
+	
+//	display: none;    
+}
+
+.singlesanom A.more-from-same:hover {
+    background-color: @accent1;
+    .box-shadow(4px 4px 0 lighten(desaturate(@accent1,40%),25%));
+    color: white;
+    text-decoration: none;
+}
+
+.singlesanom A.more-from-same b {
+    .sansSerif600;
+    display: block;
+    float: left;
+    @font-size: 24;
+    .setFontSize;
+    margin-right: 0.2em;
+    margin-top: -3px;
+}
+
+
+//========= SANOMAT, SINGLEVIEW ===
+
+
+
+#singleview.modal {
+    background-color: white;
+}
+
+#singleview.modal > .wrapper {
+    margin: 50px 0;
+}
+
+
+#singleview .pure-button {
+    background-color: white;
+    border: 1px solid @accent1;
+    color: @accent1;
+}
+
+#singleview .pure-button-primary {
+    background-color: @accent1;
+    color: white;
+    border: none;
+    @font-size: 22;
+    .setFontSize;
+}
+
+#singleview .tile {
+    .box-shadow(none);
+    border: none;
+}
+
+#singleview .singlesanom {
+    position: relative; // to raise it above #clickTarget
+    float: none;
+    margin: 0 auto;
+    @font-size: 16;
+    .setFontSize();
+    .setPaddingAll(0);
+    width: 100% !important;
+    margin-bottom: 0.5em;
+    .setPaddingTop(1);
+    .setPaddingBottom(3);
+}
+
+#singleview .neighbourinfo {
+	text-align: center;
+	margin-top: -20px;
+	margin-bottom: 10px;
+	.sansSerif600;
+	color: white;
+	font-size: 12px;
+	line-height: 18px;
+	background-color: fade(@accent1, 70%);
+}
+
+#singleview .sanom  .neighbourinfo {
+	background-color: fade(@color_sanom, 70%);
+}
+#singleview .event .neighbourinfo {
+	background-color: fade(@color_event, 70%);
+}
+#singleview .classified .neighbourinfo {
+	background-color: fade(@color_classified, 70%);
+}
+#singleview .issue .neighbourinfo {
+	background-color: fade(@color_issue, 70%);
+}
+#singleview .pick .neighbourinfo {
+	background-color: fade(@color_pick, 70%);
+}
+#singleview .photopick .neighbourinfo {
+	background-color: fade(@color_pick, 70%);
+}
+
+
+
+#singleview .articlehead {
+    @font-size: 18; //just for getting the padding right
+    .setHorizontalPadding(2, 18);
+    .setPaddingTop(1, 18);
+    .setMarginBottom(1, 18);    
+    position: relative;
+}
+
+#singleview .articlehead B {
+    @font-size: 26;
+    .setFontSize();
+    line-height: 1.25em;
+    color: @inverse;
+    height: 1.4em;
+    padding: 0.75em 0 0.1em 0;
+    width: 1.5em;
+    position: absolute;
+    top: -0.5em;
+    text-align: center;
+}
+
+#singleview .articlehead H4 {
+    @font-size: 24;
+    .setFontSize(@font-size, 18);
+    margin-left: 2em;
+    margin-top: 0.5em;
+}
+
+#singleview .msg {
+    @font-size: 18;
+    .setHorizontalPadding(1.5);
+}
+
+#singleview #issueMap {
+    margin-bottom: 20px;
+}
+
+#singleview .author {
+    @font-size: 18;
+    .setHorizontalPadding(1.5, 18);
+    .setPaddingBottom(1, 18);
+    .setFontSize(@font-size, 18);
+}
+
+#singleview #comments .author {
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    height: 3em;
+}
+
+#singleview BLOCKQUOTE {
+    overflow-x: hidden;
+}
+
+#singleview .link .msg IMG {
+    width: 40%;
+    float: right;
+    margin: 1em;
+}
+
+#singleview .author IMG {
+    height: 2.5em;
+}
+
+#singleview .author > B { // better alignment with avatar image
+    display: block;
+    margin-top: 0.3em;
+}
+
+#singleview .reactions {
+    @font-size: 16;
+    .setHeight(1);    
+    background-image: none;
+}
+
+
+#comments {
+    @font-size: 16;
+    .setFontSize();
+    .setPaddingTop(3);
+    border-top: 2px solid rgba(204, 204, 204, 0.38);
+}
+
+#singleview .comments H2, #comments H3 {
+    text-align: right;
+}
+
+#singleview .comments H2 {
+//    position: absolute;
+//    right: 2em;
+//    top: 1em;
+    @font-size: 18;
+    .setFontSize(@font-size, 20);
+    text-align: right;
+    margin: 0;
+	color: #4F4F4F;
+}
+
+#singleview .comments H2 I {
+	color: @accent2;
+}
+
+#comments H3 {
+	text-align: left;
+	@font-size: 22;
+	.setFontSize;
+	.sansSerif600;
+	.setMarginTop(1);
+	.setMarginLeft(1);
+	
+}
+
+#comments .comment {
+    @font-size: 16;
+    .setFontSize();
+    .setVerticalPadding(1);
+    .setHorizontalPadding(1.5);
+	border-bottom: 1px solid rgba(204, 204, 204, 0.26);
+    overflow-x: hidden;    
+}
+
+#comments .comment P, #comments .comment .author {
+    overflow-x: hidden;
+}
+
+#comments .comment P, #comments .comment .author, #comments .comment .metadata {
+    color: @dark4;
+}
+
+#comments .comment .metadata {
+    margin-top: 10px;
+}
+
+#comments .comment P {
+    margin-top: 0;
+}
+
+#comments .comment.hiddenComment P, #comments .comment.hiddenComment .author {
+    @font-size: 12;
+    .setFontSize();
+    margin-bottom: 0;
+    color: @light2;
+    display: none;
+}
+
+#comments .comment.hiddenComment P.isHidden {
+    @font-size: 12;
+    .setFontSize();
+    margin-bottom: 0;
+    color: @light1;
+    display: block;
+}
+
+#comments FORM {
+	padding: 0 20px;
+}
+
+
+#commentlist {
+    @font-size: 16;
+    .setMarginTop(-3);
+}
+
+
+#singleview #comments .comment .author {
+    padding: 0;
+}
+
+.comment_admin {
+    display: none;
+    position: relative;
+}
+
+.comment_admin .btn_container {
+    position: absolute;
+    right: 0;
+    top: -2.5em;
+    font-size: 0.7em;    
+}
+
+.comment_admin .btn_container .btn {
+    font-size: 0.9em;
+}
+
+#comments .pure-form {
+    @font-size: 16;
+}
+
+
+#comments TEXTAREA {
+    .setVerticalMargins(1);
+    height: 9em;
+    @font-size: 16;
+    .setFontSize;
+    box-shadow: none;
+    border: 1px solid @accent1;
+}
+
+#comments .author INPUT {
+	@font-size: 16;
+	.setFontSize;
+	box-shadow: none;
+	border: 1px solid @accent1;
+}
+
+.singlesanom.bazinga {
+    top: -250px;
+}
+
+
+
+

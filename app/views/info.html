@@ -1,0 +1,43 @@
+<div 
+    id="info" 
+    class="card content" 
+    swipe-for-menu
+    toggle-topmenu 
+    top-menu-threshold="60">
+<div class="wrapper pure-form">
+
+<header id="topBar">
+    <h2 translate>About Nearhood</h2>
+</header>
+
+    
+    <section>
+
+		<img class="logo-elements" src="./img/logo_elements.png" />
+
+        <p translate><b>Nearhood is meeting place for all neighbourhood - on web and mobile.</b> Nearhood gets together everything related to your neighbourhood. You can find events, offers, lost &amp; found items, most discussed subjects and latest local news. Inside gossip and whatever else you want to tell your neighbours.
+                </p><br />
+    
+        <button class="pure-button pure-button-primary pure-input-1" ui-sref="welcome"><i class="icon-info-sign icon-large"></i> <span translate>Read more about Nearhood</span></button><br /><br />
+      
+            <button class="pure-button pure-button-primary pure-input-1" ui-sref="info.feedback"><i class="icon-envelope icon-large"></i> <span translate>Send feedback</span></button>
+    
+    </section>
+    
+<section class="about">
+
+    <p><span translate>Nearhood app</span> v{{CONFIG.version}}<br />
+        <span translate>Hand made in Kruununhaka, Laajasalo, Mäntyharju and Sofia</span></p>
+    
+    <p translate>Nearhood is operated and offered by<br />Born Local from Helsinki<br />
+    Born Local Ltd – info@bornlocal.fi – bornlocal.fi</p>
+    
+    <p translate>"Local is the new global"</p>
+</section>
+
+
+</div><!-- /wrapper -->
+</div><!--/content -->
+
+<div id="sideview" sideview ui-view ng-class="{'hascontent':stateLevel>0}">
+</div>

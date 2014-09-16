@@ -1,0 +1,151 @@
+<div id="districts" 
+    class="card content" 
+    swipe-for-menu>
+    
+    <div
+        ng-show="districts.view=='nearby'"
+        class="wrapper pure-form"
+        >
+
+        <header id="topBar">
+            <h2>
+                <span translate>Change district</span>
+            </h2>
+        </header>
+
+        <div class="loader" ng-show="districts.loading">
+            <i class="icon-spinner icon-spin icon-2x"></i>
+            <div translate style="font-size:21px">locating</div>
+        </div> 
+        <div class="error" ng-show="districts.error">
+            <p>
+                <b>
+                    <i class="icon-bolt icon-large"></i>
+                    <span translate>Unable to locate</span>
+                </b>
+            </p>
+            <p>
+                <span translate>We're sorry but we were unable to locate your device.</span>
+            </p>
+        </div>
+
+
+        <section ng-show="districts.recent.length>0">
+            <h3 translate>Your recent districts</h3>
+            <div class="pure-menu pure-menu-open">
+                <ul>
+                    <li ng-repeat="district in districts.recent"
+                        ng-click="districts.change(district)">
+                        <i class="icon-circle-arrow-right"></i> {{district.district}}
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+
+
+        <section>
+            <h3 translate>Nearhood areas closeby</h3>
+            <div ng-show="districts.nearby.length>0" class="pure-menu pure-menu-open">
+                <ul>
+                    <li ng-repeat="district in districts.nearby"
+                        ng-click="districts.change(district)">
+                        <i class="icon-circle-arrow-right"></i> {{district.district}}
+                    </li>
+                </ul>
+            </div>
+
+            <div ng-show="districts.nearby.length==0&&districts.loading==false">
+                No areas nearby
+            </div>
+
+        </section>
+
+        <button 
+            ng-hide="districts.loading"
+            class="pure-button pure-button-primary pure-input-1" 
+            ui-sref="districts({view:'city'})" 
+            translate>
+                        
+          <i class="icon-plus-sign"></i> Show all areas
+            
+        </button>
+
+        <p ng-show="showDistricts.all || showDistricts.suggested" translate>Nearhood is open in selected areas, and we are adding new areas all the time. If area where you live, is not on the list, please  <a href="mailto:info@bornlocal.fi">send us email</a> and tell us where to expand next!
+        </p>
+
+    </div>
+
+
+    <div
+        ng-show="districts.view=='city'"
+        class="wrapper pure-form"
+        >
+        <header id="topBar">
+            <h2>
+                <span translate>Choose a city</span>
+            </h2>
+        </header>
+
+        <div class="loader" ng-show="districts.loading">
+            <i class="icon-spinner icon-spin icon-2x"></i>
+        </div> 
+
+
+        <section ng-show="districts.cities.length>0">
+            <div class="pure-menu pure-menu-open">
+                <ul>
+                    <li ng-repeat="city in districts.cities | orderBy:'district' | filter:'fin.'"
+                        ui-sref="districts({view:city.district_code})">
+                        <i class="icon-plus-sign"></i> {{city.district}}
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+
+        <button 
+            ng-hide="districts.loading"
+            class="pure-button pure-button-primary pure-input-1" 
+            go-back
+            translate>
+            <i class="icon-arrow-left"></i> Back
+        </button>
+    </div>
+
+    <div
+        ng-hide="districts.view=='city'||districts.view=='nearby'"
+        class="wrapper pure-form"
+        >
+        <header id="topBar">
+            <h2>
+                <span translate>Choose your area</span>
+            </h2>
+        </header>
+
+
+        <div style="padding:10px" ng-show="districts.districts.length==0&&districts.loading==false">
+            We haven't yet added areas from this city :/ 
+        </div>
+        <section ng-show="districts.districts.length>0">
+            <div class="pure-menu pure-menu-open">
+                <ul>
+                    <li ng-repeat="district in districts.districts | orderBy:'district'"
+                        ng-click="districts.change(district)">
+                        <i class="icon-circle-arrow-right"></i> {{district.district}}
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+
+        <button 
+            ng-hide="districts.loading"
+            class="pure-button pure-button-primary pure-input-1" 
+            go-back
+            translate>
+            <i class="icon-arrow-left"></i> Back
+        </button>
+    </div>
+
+</div>

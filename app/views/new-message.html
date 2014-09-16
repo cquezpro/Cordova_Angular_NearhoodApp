@@ -1,0 +1,145 @@
+<div id="new-message">
+
+	<div class="view" sk-parent>
+		<div class="wrapper">	
+		
+	
+		<header>
+			<div class="type typebg update" 
+				ng-class="{'current':message.data.type=='sanom'}" 
+				ng-click="message.data.type='sanom'">
+				<i class="icon-comment"></i><br>
+				<span translate>update</span>
+			</div>
+			<div class="type typebg event" 
+				ng-class="{'current':message.data.type=='event'}" 
+				ng-click="message.data.type='event'">
+				<i class="icon-calendar"></i><br>
+				<span translate>event</span>
+			</div>
+			<div class="type typebg classified" 
+				ng-class="{'current':message.data.type=='classified'}" 
+				ng-click="message.data.type='classified'">
+				<i class="icon-pushpin"></i><br>
+				<span translate>classified</span>
+			</div>
+			<div class="type typebg issue" 
+				ng-class="{'current':message.data.type=='issue'}" 
+				ng-click="message.data.type='issue'">
+				<i class="icon-bolt"></i><br>
+				<span translate>issue</span>
+			</div>
+		</header>
+	
+		<form class="pure-form" ng-submit="message.send()">
+			<div class="content">
+
+				<!-- -->
+				<!-- CONTENT -->
+				<!-- -->
+				
+				<!-- type:UPDATE -->
+				<div ng-if="message.data.type=='sanom'">
+
+					<textarea id="messageBody" ng-model="message.data.body" placeholder="{{'What\'s up in the neighbourhood today? Send an update and reach all the neighbours.'|translate}}" sk-focus-handler></textarea>
+					
+				</div>
+
+
+				<!-- type:EVENT -->
+				<new-event ng-if="message.data.type==='event' && afterDelay" message="message.data"></new-event>
+
+
+				<!-- type:CLASSIFIED -->
+				<new-classified ng-if="message.data.type==='classified' && afterDelay" message="message.data"></new-classified>
+
+
+				<!-- type:ISSUE -->
+				<new-issue ng-if="message.data.type==='issue' && afterDelay" message="message.data"></new-issue>
+
+
+				<div style="width:100%; height:1px"></div>
+
+				<div ng-if="message.data.type=='sanom' && afterDelay">
+					<location-block messagedata="message.data" hide="message.inSubView"></location-block>
+				</div>
+				<!-- -->
+				<!-- PHOTO -->
+				<!-- -->
+
+				<div class="imgs" ng-show="message.data.photo" ng-style="{ 'background-image': 'url(' + message.data.photo + ')' }">
+					<div class="x" ng-click="message.data.photo=null">
+						<i class="icon-remove"></i>
+					</div>
+				</div>
+				
+				<nh-photo-uploader ng-model="message.data.photo" ng-hide="message.data.photo"></nh-photo-uploader>
+
+
+
+			</div>
+
+
+			<footer ng-if="afterDelay" class="bottom">
+				<footer class="personals">
+					<!-- -->
+			        <!-- AUTHOR -->
+					<!-- -->
+					<section class="author">
+			            <div ng-if="!message.data.useAlias">
+			                <img ng-src="{{message.user.imgThumbUrl}}">{{message.user.name}}
+			            </div>
+			            <div ng-if="message.data.useAlias">
+			                <input required type="text" class="pure-input-1" name="pseudonym" ng-model="message.data.pseudonym" placeholder="{{'Your alias'|translate}}" sk-focus-handler />
+			            </div>
+			        </section>
+			
+					<section class="switches">
+			            <div 
+			                class="pure-button pure-input-1-2" 
+			                ng-class="{selected: message.data.useAlias}" 
+			                ng-click="message.data.useAlias = !message.data.useAlias">
+			                <i class="icon-check-empty icon-large marker-off"></i>
+			                <i class="icon-check icon-large marker-on"></i>
+			                 <span translate>use an alias</span>
+			            </div>
+			            <div 
+			                class="pure-button pure-input-1-2" 
+			                ng-class="{selected: message.data.fbShare}" 
+			                ng-disabled="message.data.useAlias || !message.user.fbid" 
+			                ng-click="message.data.fbShare = !message.data.fbShare">
+							<i class="icon-check-empty icon-large marker-off"></i>
+							<i class="icon-check icon-large marker-on"></i>
+			                <span translate translate-comment='sharing to facebook'>
+			                <i class="icon-facebook-sign icon-large"></i> sharing</span>
+			            </div>            
+			        </section>		
+			       </footer>
+			       <footer class="actions">
+					<button type="submit" id="new-msg-submit-hidden" style="display:none"></button>
+					<div class="back-btn" go-back><i class="icon-arrow-left"></i></div>
+					<a
+				    	class="pure-button pure-button-primary pure-input-1 send-button {{message.data.type}}" 
+				    	ng-click="message.submit()"
+				    	ng-disabled="message.sending" 
+				    	translate>
+				    	Send <i class="icon-chevron-sign-right"></i>
+					</a>
+				</footer>
+			</footer>
+		</form>	
+		<div class="typebg {{message.data.type}} loader" ng-if="message.sending">
+			<i class="icon-spinner icon-spin icon-2x"></i>
+			<div translate>Sending</div>
+		</div>
+	
+		</div><!-- /wrapper -->
+	
+	</div>
+
+	<div id="subview" sideview ui-view ng-class="{'frombottom':ui.sideviewPos=='bottom'}" class="typebg {{ctrl.message.type}}"></div>
+
+	<div class="viewbg typebg {{message.data.type}}"></div>
+	
+</div>
+

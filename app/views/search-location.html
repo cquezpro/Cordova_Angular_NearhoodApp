@@ -1,0 +1,63 @@
+<div id="search-address">
+	<div class="holder">
+		<form class="pure-form search-form">
+			<i class="icon-search"></i>
+			<input 
+				type="text" 
+				ng-model="srcCtrl.search" 
+				placeholder="Find a place or address" 
+				ng-change="srcCtrl.change()"
+				sk-focus
+			>
+			<div class="x" ng-click="srcCtrl.clearSearch();" ng-hide="srcCtrl.loading"><i class="icon-remove"></i></div>
+			<div class="loading" ng-show="srcCtrl.loading"><i class="icon-spinner icon-spin icon-2x"></i></div> 
+		</form>
+		<div class="clearfix"></div>
+
+		<div class="cancel" go-back>
+			<div class="back"><i class="icon-arrow-left"></i></div>
+			<div class="right" translate>cancel</div>
+		</div>
+
+
+		<div class="blank" ng-hide="srcCtrl.changed">
+			<p translate>
+				You can search for place names like <b>Railway station, Greenfield park</b> or use addresses like <b>Main Street 23</b>
+			</p>
+			<div translate style="margin-bottom:25px" ng-hide="srcCtrl.search.length==0">
+				Use <div class="x"><i class="icon-remove"></i></div> to clear the current location.
+			</div>
+		</div>
+		<div class="place new" ng-show="srcCtrl.changed" ng-click="srcCtrl.choose(srcCtrl.search)">
+			<div class="icon">
+				<i class="icon-plus-sign" style="font-size:22px"></i>
+			</div>
+			<div class="name">Luo <b>{{srcCtrl.search}}</b> tämänhetkiseen sijaintiisi</div>
+		</div>
+		
+		<div class="pure-menu pure-menu-open">			
+			<ul>
+			    <li class="place" ng-repeat="place in srcCtrl.places | orderBy:'distance'"  ng-click="srcCtrl.choose(place)">
+					<div class="icon" ng-if="place.icon">
+						<img ng-src="{{'https://nearhood.net'+place.icon}}">
+					</div>
+					<div class="icon" ng-if="!place.icon">
+						<i class="icon-map-marker"></i>
+					</div>
+					<div class="name">{{place.name | firstpart}}</div>
+			    </li>
+			</ul>		
+		</div>		
+		
+	</div>
+	
+
+
+	<form class="pure-form">
+	
+	<!-- <input type="text" ng-model="srcCtrl.address" ng-change="srcCtrl.change()" focus-on-init ng-click="srcCtrl.test()"> -->
+	<div ng-click="srcCtrl.choose(result)" class="result" ng-repeat="result in srcCtrl.results">
+		{{result.formatted_address}}
+	</div>
+	</form>
+</div>

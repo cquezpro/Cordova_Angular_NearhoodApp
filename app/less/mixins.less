@@ -1,0 +1,239 @@
+.setFontSize(@localFontSize: @font-size, @baseSizePx: @baseFontSize) {
+    font-size: ((@localFontSize/@baseSizePx) * 1em); // convert px -> em
+    line-height: ((@baseLineHeight/@localFontSize) * 1em); // set correct line height
+}
+
+.setLineHeight(@baseLines: 1, @localFontSize: @font-size) {
+    line-height: ((@baseLineHeight/@localFontSize) * @baseLines * 1em); // defaults to 1 baseline
+}
+
+.setHeight(@baseLines: 1, @localFontSize: @font-size) {
+    height: ((@baseLineHeight/@localFontSize) * @baseLines * 1em); // defaults to 1 baseline
+}
+
+.setMarginTop(@baseLines: 1, @localFontSize: @font-size) {
+    margin-top: ((@baseLineHeight/@localFontSize) * @baseLines * 1em); // defaults to 1 baseline
+}
+
+.setMarginBottom(@baseLines: 1, @localFontSize: @font-size) {
+    margin-bottom: ((@baseLineHeight/@localFontSize) * @baseLines * 1em); // defaults to 1 baseline
+}
+
+.setMarginRight(@baseLines: 1, @localFontSize: @font-size) {
+    margin-right: ((@baseLineHeight/@localFontSize) * @baseLines * 1em); // defaults to 1 baseline
+}
+
+.setMarginRightImp(@baseLines: 1, @localFontSize: @font-size) {
+    margin-right: ((@baseLineHeight/@localFontSize) * @baseLines * 1em) !important; // defaults to 1 baseline
+}
+
+.setMarginLeft(@baseLines: 1, @localFontSize: @font-size) {
+    margin-left: ((@baseLineHeight/@localFontSize) * @baseLines * 1em); // defaults to 1 baseline
+}
+
+
+.setVerticalMargins(@baseLines: 0.5, @localFontSize: @font-size) { // defaults to 50/50 split of the baseline between top&bottom
+    margin-top: ((@baseLineHeight/@localFontSize) * @baseLines * 1em);
+    margin-bottom: ((@baseLineHeight/@localFontSize) * @baseLines * 1em);
+}
+
+.setHorizontalMargins(@baseLines: 1, @localFontSize: @font-size) { // defaults to 1 baseline
+    margin-left: ((@baseLineHeight/@localFontSize) * @baseLines * 1em);
+    margin-right: ((@baseLineHeight/@localFontSize) * @baseLines * 1em);
+}
+
+
+.setMarginAll(@baseLines: 1, @localFontSize: @font-size) {
+    margin: ((@baseLineHeight/@localFontSize) * @baseLines * 1em);
+}
+
+.setPaddingAll(@baseLines: 1, @localFontSize: @font-size) {
+    padding: ((@baseLineHeight/@localFontSize) * @baseLines * 1em); // defaults to 1 baseline
+}
+
+.setPaddingTop(@baseLines: 1, @localFontSize: @font-size) {
+    padding-top: ((@baseLineHeight/@localFontSize) * @baseLines * 1em); // defaults to 1 baseline
+}
+
+.setPaddingBottom(@baseLines: 1, @localFontSize: @font-size) {
+    padding-bottom: ((@baseLineHeight/@localFontSize) * @baseLines * 1em); // defaults to 1 baseline
+}
+
+.setPaddingRight(@baseLines: 1, @localFontSize: @font-size) {
+    padding-right: ((@baseLineHeight/@localFontSize) * @baseLines * 1em); // defaults to 1 baseline
+}
+
+.setPaddingLeft(@baseLines: 1, @localFontSize: @font-size) {
+    padding-left: ((@baseLineHeight/@localFontSize) * @baseLines * 1em); // defaults to 1 baseline
+}
+
+.setVerticalPadding(@baseLines: 1, @localFontSize: @font-size) {
+    padding-top: ((@baseLineHeight/@localFontSize) * @baseLines * 1em); // defaults to 1 baseline
+    padding-bottom: ((@baseLineHeight/@localFontSize) * @baseLines * 1em); // defaults to 1 baseline    
+}
+
+.setHorizontalPadding(@baseLines: 1, @localFontSize: @font-size) {
+    padding-left: ((@baseLineHeight/@localFontSize) * @baseLines * 1em); // defaults to 1 baseline
+    padding-right: ((@baseLineHeight/@localFontSize) * @baseLines * 1em); // defaults to 1 baseline    
+}
+
+
+
+.clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.box-shadow(@shadow) {
+  -webkit-box-shadow: @shadow;
+     -moz-box-shadow: @shadow;
+          box-shadow: @shadow;
+}
+
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+
+.transition(@transition) {
+  -webkit-transition: @transition;
+     -moz-transition: @transition;
+      -ms-transition: @transition;
+       -o-transition: @transition;
+          transition: @transition;
+}
+
+.translate(@x, @y) {
+  -webkit-transform: translate(@x, @y);
+     -moz-transform: translate(@x, @y);
+      -ms-transform: translate(@x, @y);
+       -o-transform: translate(@x, @y);
+          transform: translate(@x, @y);
+}
+
+.translate3d(@x, @y, @z) {
+  -webkit-transform: translate3d(@x, @y, @z);
+     -moz-transform: translate3d(@x, @y, @z);
+      -ms-transform: translate3d(@x, @y, @z);
+       -o-transform: translate3d(@x, @y, @z);
+          transform: translate3d(@x, @y, @z);
+}
+
+.rotate(@degrees) {
+  -webkit-transform: rotate(@degrees);
+     -moz-transform: rotate(@degrees);
+      -ms-transform: rotate(@degrees);
+       -o-transform: rotate(@degrees);
+          transform: rotate(@degrees);
+}
+
+.scale(@ratio) {
+  -webkit-transform: scale(@ratio);
+     -moz-transform: scale(@ratio);
+      -ms-transform: scale(@ratio);
+       -o-transform: scale(@ratio);
+          transform: scale(@ratio);
+}
+
+.opacity(@opacity) {
+  opacity: @opacity / 100;
+  filter: ~"alpha(opacity=@{opacity})";
+}
+
+.placeholder(@color) {
+  &:-moz-placeholder {
+    color: @color;
+  }
+  &:-ms-input-placeholder {
+    color: @color;
+  }
+  &::-webkit-input-placeholder {
+    color: @color;
+  }
+}
+
+.alphaBg(@colour, @alpha)
+{
+    @alphaColour: hsla(hue(@colour), saturation(@colour), lightness(@colour), @alpha);
+    @ieAlphaColour: argb(@alphaColour);
+     
+    background-color: @colour; // Fallback for older browsers
+    background-color: @alphaColour; 
+     
+    // IE hacks
+    zoom: 1; // hasLayout
+    background-color: transparent\9;
+    -ms-filter:  "progid:DXImageTransform.Microsoft.gradient(startColorstr=@{ieAlphaColour}, endColorstr=@{ieAlphaColour})"; // IE 8+
+        filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr=@{ieAlphaColour}, endColorstr=@{ieAlphaColour})"; // IE 6 & 7
+     
+}
+
+
+/*
+Animate.css - http://daneden.me/animate
+LICENSED UNDER THE  MIT LICENSE (MIT)
+
+Copyright (c) 2012 Dan Eden
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+.animated {
+	-webkit-animation-fill-mode: both;
+	-moz-animation-fill-mode: both;
+	-ms-animation-fill-mode: both;
+	-o-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-duration: 1.5s;
+	-moz-animation-duration: 1.5s;
+	-ms-animation-duration: 1.5s;
+	-o-animation-duration: 1.5s;
+	animation-duration: 1.5s;
+    -webkit-animation-delay: 3s;
+    -moz-animation-delay: 3s;
+    -ms-animation-delay: 3s;
+    -o-animation-delay: 3s;
+    animation-delay: 3s;
+}
+
+@-webkit-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}
+	40% {-webkit-transform: translateY(-30px);}
+	60% {-webkit-transform: translateY(-15px);}
+}
+
+@-moz-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {-moz-transform: translateY(0);}
+	40% {-moz-transform: translateY(-30px);}
+	60% {-moz-transform: translateY(-15px);}
+}
+
+@-o-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {-o-transform: translateY(0);}
+	40% {-o-transform: translateY(-30px);}
+	60% {-o-transform: translateY(-15px);}
+}
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+	40% {transform: translateY(-30px);}
+	60% {transform: translateY(-15px);}
+}
+
+.bounce {
+	-webkit-animation-name: bounce;
+	-moz-animation-name: bounce;
+	-o-animation-name: bounce;
+	animation-name: bounce;
+}

@@ -1,0 +1,50 @@
+<div>
+	<div 
+	id="menu"
+	class="card"
+	swipe-for-menu
+	ng-class="{'open':menu.visible}"
+	ng-hide="inSideview"
+	>
+	
+	
+		<div class="brand">
+			<img src="./img/logo_elements.png" alt="" class="elements" />
+			<img src="./img/logo_type.png" class="type" alt="nearhood" />
+		</div>
+		<div class="top">
+			<div class="user" ui-sref="user">
+				<img ng-if="isLoggedIn() && user.imgThumbUrl" ng-src="{{user.imgThumbUrl}}" />
+				<i ng-if="!isLoggedIn() || (isLoggedIn() && !user.imgThumbUrl)" class="icon-user icon-light"></i>
+			</div>
+			<div class="district" ui-sref="districts">
+				<i class="icon-location-arrow icon-light"></i>
+			</div>
+			<div class="info" ui-sref="info">
+				<i class="icon-info icon-light"></i>
+			</div>
+		</div>
+
+		<ul>
+			<li ng-repeat="item in items"
+				class="{{item.type}}"
+				ng-class="{selected: params.type==item.type}"
+				ng-style="liPos($index)"
+				ui-sref="messages({type:item.type})">
+				<div class="wrapper">
+					<i></i>
+					<b translate>{{item.name}}</b>
+				</div>
+			</li>
+ 
+		</ul>
+	</div>
+
+	<div id="toggle" ng-class="{'open':menu.visible}" class="cornerButton" ng-show="showToggle" ng-click="toggle()">
+	    <span class="icon-stack">
+			<i class="icon-sign-blank icon-stack-base"></i>
+			<i class="icon-reorder icon-light" ng-hide="menu.visible"></i>
+			<i class="icon-remove icon-light" ng-show="menu.visible"></i>
+	    </span>
+	</div>
+</div>

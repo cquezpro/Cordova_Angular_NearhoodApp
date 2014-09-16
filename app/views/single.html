@@ -1,0 +1,283 @@
+<header id="topBar" ng-class="single.model.type">
+
+    <div id="closeModal" class="cornerButton" ng-click="closeSideview()">
+    
+        <span class="icon-stack">
+          <i class="icon-sign-blank icon-stack-base"></i>
+          <i class="icon-arrow-left icon-light"></i>
+        </span>
+    
+    </div>
+
+    <div ng-switch on="single.model.type">
+        <h2 ng-switch-when="sanom"><i class="icon-comment"></i> <span translate translate-comment="Message class, not a verb">Update</span></h2>
+        <h2 ng-switch-when="classified"><i class="icon-pushpin"></i> <span translate>Classified ad</span></h2>
+        <h2 ng-switch-when="event"><i class="icon-calendar"></i> <span translate>Event</span></h2>
+        <h2 ng-switch-when="pick"><i class="icon-quote-right"></i> <span translate>Pick</span></h2>                               
+        <h2 ng-switch-when="issue"><i class="icon-bolt"></i> <span translate>Issue</span></h2>       
+        <h2 ng-switch-default><i class="icon-comment"></i> <span translate>Message</span></h2>
+    </div>
+
+</header>
+
+<div id="singleview" class="modal">
+<div class="wrapper">
+
+<div class="loader" ng-show="loadingStatus.messageDetailLoading"><i class="icon-spinner icon-spin icon-2x"></i></div>
+
+<div class="error" ng-show="loadingStatus.messageDetailLoadError">
+    <p><b><i class="icon-bolt icon-large"></i> <span translate>Downloading message failed</span></b></p>
+    <p><a href="" ng-click="reloadMessages()" translate>Please try again</a> – <span translate>and if it still fails <a href="mailto:info@bornlocal.fi">send us email</a></span>.</p>
+</div>
+
+
+<article id="singlesanom" class="singlesanom tile" ng-class="single.model.type">
+
+    <div ng-if="(single.model.district_code !== district.path) && (single.model.district)" class="neighbourinfo">{{single.model.district}}
+		<span ng-if="(single.model.district_code | isArray) && (single.model.district_code.length > 1)">+{{single.model.district_code.length}}</span>
+    </div>
+
+    <section class="msg">
+
+        <img ng-if="single.model.photo.url" ng-src="{{single.model.photo.url}}" />
+    
+        <div ng-if="single.model.url" ng-click="" data-url="{{single.model.url}}">
+            <blockquote>
+                <h3 ng-if="single.model.urldata.title">{{single.model.urldata.title}}</h3>
+                <p ng-if="single.model.urldata.description !== ''">
+                    <span ng-bind-html="single.model.urldata.description | noHTML | url2link | nl2br"></span>
+                </p>
+                <cite open-external ng-click="openurl(single.model,$event)">{{single.model.url|truncate:43:''}} <i class="icon-external-link"></i></cite>
+            </blockquote>
+        </div>
+        <p ng-bind-html="single.model.sanom | noHTML | url2link | nl2br"></p>
+       
+        <div ng-if="single.model.type == 'classified'">
+            <h3>{{single.model.classified_type_lang}}</h3>
+            <p ng-bind-html="single.model.classified_content | noHTML | url2link | nl2br"></p>
+            <p class="contact" ng-if="single.model.classified_contact" ng-bind-html="single.model.classified_contact|url2link"></p>
+        </div>
+        
+        <section class="vevent" ng-if="single.model.type == 'event'">
+        
+            <h3 class="summary" ng-if="single.model.event_name">{{single.model.event_name}}</h3>
+            <p class="description" ng-if="single.model.event_description !== ''">
+                <span ng-bind-html="single.model.event_description | noHTML | url2link | nl2br"></span>
+            </p>
+            <div class="event-data">
+                <time datetime="" class="dtstart"><i class="icon-calendar"></i><i class="icon-arrow-right"></i> <span class="date">{{single.model.event_date | date:"EEE d'.'M'.'" }}</span>  <span ng-hide="single.model.no_start_hour"><i class="icon-time"></i>{{single.model.event_date | date:"HH':'mm" }}</span></time>
+            <div class="event-data" ng-if="single.model.event_end_date">                        
+                <time datetime="" class="dtend"><i class="icon-calendar"></i><i class="icon-arrow-left"></i> <span class="date">{{single.model.event_end_date | date:"EEE d'.'M'.'" }}</span> <span ng-hide="single.model.no_end_hour"><i class="icon-time"></i>{{single.model.event_end_date | date:"HH':'mm" }}</span></time>                        
+            </div>
+			<div class="event-data event-recurring" ng-if="single.model.recurring">                        
+			    <i class="icon-repeat"></i> <span ng-if="single.model.recurrence == 'weekly'"><span translate>weekly</span></span> <span ng-if="single.model.recurrence == 'biweekly'" ><span translate>bi-weekly</span></span> {{single.model.last_recurring_date | date:"EEE d'.'M'.'" }} <span translate>until</span>
+			</div>            
+            <p class="location" ng-if="single.model.event_location"><i class="icon-map-marker"></i> {{single.model.event_location}}</p>
+            </div>
+            
+        </section>
+        
+        <div ng-if="single.model.type == 'issue'">
+            <p>
+                <span ng-bind-html="single.model.description | noHTML | url2link | nl2br"></span>
+            </p>
+            <p class="location"><i class="icon-map-marker"></i> {{single.model.address_string}}</p>
+            <p class="status" ng-class="single.model.issue_status"><span ng-if="single.model.issue_status == 'closed'"><i class="icon-check"></i> Käsitelty</span><span ng-if="single.model.issue_status == 'open'"><i class="icon-check-empty"></i> Avoin</span></p>
+        </div>
+        
+        <p class="location" ng-if="single.model.poi.name && single.model.type !== 'event'"><i class="icon-map-marker"></i> {{single.model.poi.name}}</p>
+        
+        <div id="leaflet-holder" ng-if="!single.isAndroid40 && single.model.geo && single.extended" >
+            <div id="leaflet-cover"></div>
+            <leaflet
+                center="single.mapCenter" 
+                defaults="single.mapDefaults" 
+                markers="single.mapMarker" 
+                id="pinnedMap" 
+                height="280px" 
+                width="100%">
+            </leaflet>
+        </div>
+        
+        <div ng-if="single.isAndroid40&&single.model.geo">
+            <img ng-src="http://open.mapquestapi.com/staticmap/v4/getmap?key=Fmjtd%7Cluur290725%2C8n%3Do5-908sh6&center={{single.issueCenter.lat}},{{single.issueCenter.lng}}&zoom={{single.issueCenter.zoom}}&size=280,280&type=map&imagetype=png&pois=blue_1,{{single.issueCenter.lat}},{{single.issueCenter.lng}}&scalebar=false" />
+        </div>
+        
+    </section>
+    <section class="author">
+                        
+        <img ng-if="single.model.profile_photo_thumb_url" ng-src="{{single.model.profile_photo_thumb_url}}">
+        <ng-if="single.model.username">{{single.model.username}}</ng-if>
+        <ng-if="single.model.pseudonym">{{single.model.pseudonym}}</ng-if>
+        
+        <time class="pubdate" datetime="" pubdate="">
+            {{single.model.time | date:"d'.'M'.' HH':'mm" }}
+        </time>            
+
+    </section>
+    <footer class="reactions">
+    
+        <section class="comments" ng-if="single.model.comments.length >= 1">
+            <h2><i class="icon-reply"></i> 
+            
+            <span ng-if="single.model.comments.length == 1">
+                <b>{{single.model.comments.length}}</b> <span translate>comment</span>
+            </span>
+            
+            <span ng-if="single.model.comments.length > 1">
+                <b>{{single.model.comments.length}}</b> <span translate>comments</span>
+            </span>
+            
+            </h2>
+        </section>
+
+        <section class="likes">
+            <div class="native_like">
+
+                <b ng-if="single.model.stars > 0" class="like_nums">{{single.model.stars}}</b>
+                
+                <span ng-if="single.model.liked" ng-click="single.model.unlike($event)"><i class="icon-star" style="color:rgb(255, 184, 0)"></i> <span class="action"><span translate translate-comment="verb">Liked</span></span></span>
+                <span ng-if="!single.model.liked" ng-click="single.model.like($event)"><i class="icon-star-empty"></i> <span class="action"><span translate translate-comment="verb">Like</span></span></span>
+
+            </div>
+
+        </section>
+        
+    </footer>
+
+
+    <section 
+        ng-show="single.model.loginPrompt" 
+        class="loginPrompt" 
+        ui-sref=".login"
+        translate>
+        To like messages you need to be logged in. <b>Log in or register here!</b>
+    </section>
+    
+    
+    <section id="comments">
+   
+        <section id="commentlist">
+            <section ng-repeat="comment in single.model.comments" class="comment">
+                
+                <p ng-bind-html="comment.comment | noHTML | nl2br"></p>
+
+                <section class="author">
+                    <img ng-if="comment.profile_photo_thumb_url" ng-src="{{comment.profile_photo_thumb_url}}">
+                    <ng-if="comment.username">{{comment.username}}</ng-if>
+                    <ng-if="comment.pseudonym">{{comment.pseudonym}}</ng-if>
+                    
+                    <time class="pubdate">{{comment.time | date:"d'.'M'.' HH':'mm" }}
+                    </time>
+                    
+                </section>                
+    
+                <footer class="metadata">
+        
+                    <section class="likes">
+                        <div class="native_like">
+                            <b ng-if="comment.stars > 0" class="like_nums">{{comment.stars}}</b>
+                            
+                            <span 
+                                ng-if="comment.liked"
+                                ng-click="comment.unlike($event)"
+                                ><i class="icon-star"></i><span class="action" translate translate-comment="verb">Unlike</span>
+                            </span>
+
+                            <span 
+                                ng-if="!comment.liked"
+                                ng-click="comment.like($event)">
+                                <i class="icon-star-empty"></i> <span class="action" translate translate-comment="verb">Like</span>
+                            </span>
+                        </div>
+        
+                    </section>
+
+                </footer>
+                <section 
+                    ng-show="comment.loginPrompt" 
+                    class="loginPrompt"
+                    ui-sref=".login"
+                    translate>
+                    To like comments you need to be logged in. <b>Log in or register here!</b>
+                </section>
+                
+    
+            </section><!--/comment -->
+        </section><!--/commentlist -->    
+            
+        <h3 ng-show="single.user.isLoggedIn()" translate>Comment</h3>
+        
+        <div ng-hide="single.user.isLoggedIn()" class="pure-form" style="padding:15px;">
+        
+            <p translate>Commenting is possible after logging in</p>
+            
+            <button class="pure-button pure-button-primary pure-input-1" 
+        ui-sref=".login" translate>Log in</button>
+        
+        </div>
+        
+        <form class="pure-form" ng-if="single.user.isLoggedIn()">
+        
+                <textarea 
+                    name="comment" 
+                    id="commentBody" 
+                    ng-model="single.newComment.comment" 
+                    class="pure-input-1"
+                    required>
+                </textarea>
+                
+                <section class="author">
+                
+                    <div ng-if="!single.switches.alias">
+                        <img ng-src="{{single.userInfo.imgThumbUrl}}">{{single.userInfo.name}}
+                    </div>
+                    <div ng-if="single.switches.alias">
+                        <input type="text" class="pure-input-1" name="pseudonym" ng-model="single.newComment.pseudonym" value="" placeholder="{{'Your alias'|translate}}" />
+                    </div>
+        
+                </section>       
+                
+                <section class="switches">
+                    <button type="button" 
+                        class="pure-button pure-input-1-2" 
+                        ng-class="{selected: single.switches.alias}"
+                        ng-click="single.switches.alias = !single.switches.alias">
+                        <i class="icon-check-empty icon-large marker-off"></i>
+                        <i class="icon-check icon-large marker-on"></i>
+                        <span translate>Use an alias</span>
+                    </button>
+                    <button type="button" 
+                        class="pure-button pure-input-1-2" 
+                        ng-class="{selected: single.switches.fbShare}" 
+                        ng-disabled="single.switches.alias || !single.userInfo.fbid"
+                        ng-click="single.switches.fbShare = !single.switches.fbShare">
+                        <i class="icon-check-empty icon-large marker-off"></i>
+                        <i class="icon-check icon-large marker-on"></i>
+						<span translate translate-comment='sharing to facebook'>
+						<i class="icon-facebook-sign icon-large"></i> sharing</span>
+                    </button>            
+                </section>                         
+                
+                <button 
+                    class="pure-button pure-button-primary pure-input-1"
+                    ng-click="single.sendComment()"
+                    ng-hide="sendingStatus.sendingComment" translate>
+                    Send comment
+                </button>
+                <button 
+                    class="pure-button pure-button-disabled pure-input-1" 
+                    ng-show="sendingStatus.sendingComment">
+                    <i class="icon-spinner icon-spin icon-large"></i>
+                </button>
+        </form>
+        
+    </section><!-- /comments -->
+    
+</article>
+
+</div>
+</div>
+
+<div id="subview" sideview ui-view></div>
+

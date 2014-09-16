@@ -1,0 +1,31 @@
+<div>
+	<button 
+		ng-show="messagedata.lat==-1"
+		ui-sref=".location"
+		class="pure-button pure-input-1 pure-button-primary">
+		<i class="icon-location-arrow"></i>
+		<span translate>add a location</span>
+	</button>
+
+
+	<div ng-if="messagedata.lat>0">
+		<div class="maplabel">
+<!--			<div class="icon" style="position:absolute">
+				<img ng-if="messagedata.poi.icon" ng-src="{{'https://fi.nearhood.net'+messagedata.poi.icon}}">
+				<i ng-if="!messagedata.poi.icon" class="icon-map-marker"></i>
+			</div>-->
+			<span ng-show="messagedata.newplace.length>0">{{messagedata.newplace | firstpart}}</span>
+			<span ng-show="messagedata.address.length>0&&messagedata.newplace.length==0&&messagedata.poi==null">{{messagedata.address | firstpart}}</span>
+			<span ng-show="messagedata.poi">{{messagedata.poi.name}}</span>
+			<div class="x" ng-click="removeLocation()"><i class="icon-remove"></i></div>			
+			
+		</div>
+		<leaflet 
+			ng-if="!hide"
+			center="mapCenter" 
+			defaults="mapDefaults" 
+			id="mapExcerpt"
+			markers="mapMarkers" height="120px" width="99%">
+		</leaflet>
+	</div>
+</div>

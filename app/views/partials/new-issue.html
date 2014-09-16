@@ -1,0 +1,36 @@
+<div>
+	<i class="field-icon icon-tag"></i>
+	<select required
+		class="has-icon"
+		ng-model="message.issue_type" 
+		ng-options="type.key as type.name for type in issueTypes"
+		style="margin-bottom:0">
+		<option value="">{{'choose issue type' | translate}}</option>
+	</select>
+	<textarea ng-if="message.district_code.indexOf('fin.hel') == 0" required
+		ng-model="message.body" 
+		placeholder="{{'Pothole or a broken street light on your home street? Make an issue report and reach the city officials!'|translate}}" 
+		sk-focus-handler></textarea>
+		
+	<div ng-if="message.district_code.indexOf('fin.hel') == 0">
+		<div class="legal-control" ng-click="showLegal=true" translate>terms for sending issue reports</div>
+		<div class="legal" ng-show="showLegal">
+			<div ng-click="showLegal=false" class="close"><i class="icon-remove-sign"></i></div>
+			<div translate>
+			<p>Antamasi palaute voidaan julkaista Helsingin kaupungin internetsivuilla ja/tai muissa medioissa. Älä sisällytä palautteeseesi yksityisyyden suojan alaista tietoa, kuten henkilön nimiä, henkilötunnuksia tms. Palaute voidaan jättää julkaisematta tai sitä voidaan muokata ennen julkaisua.</p>
+			<p>Jos palautteeseesi sisältyy valokuva tai video, sen täytyy olla sinun ottamasi. Jos kuvassa esiintyy tunnistettavia henkilöitä, täytyy sinulla lisäksi olla heiltä lupa kuvan julkaisemiseen. Lähettämällä kuvan palautteen osana vakuutat, että sinulla on edellä mainittu lupa kuvan julkaisuun.</p>
+			<p>Lähettämällä kuvan, videon tai muuta tekijänoikeuslain suojaamaa sisältöä palautteen osana, luovutat kaikki tekijän- ym. oikeutesi sisältöön (mukaan lukien edelleenluovutus- ja muunteluoikeuden) Helsingin kaupungille</p>
+			</div>
+		</div>
+	</div>
+
+	<textarea ng-if="message.district_code.indexOf('fin.hel') !== 0" required
+		ng-model="message.body" 
+		placeholder="{{'Pothole or a broken street light on your home street? Make an issue report'|translate}}" 
+		sk-focus-handler></textarea>
+
+	<location-block messagedata="message"></location-block>
+	<div style="width:100%;height:1px"></div>
+
+
+</div>

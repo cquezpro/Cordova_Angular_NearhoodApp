@@ -1,0 +1,167 @@
+<div id="welcomeFirst" ng-if="welcome.view!=='slides'">
+    
+    <div id="districtChoice" class="card content">
+        <div class="wrapper">
+        
+        
+            <header id="id">
+                <h1><img src="./img/logo_type_white.png" alt="nearhood" /></h1>
+            </header>
+            
+            <p class="slogan" translate>Nearhood is the place where the whole neighbourhood meets</p>
+            
+            
+            <div class="loader" ng-show="welcome.loading"><i class="icon-spinner icon-spin icon-2x"></i></div>
+            
+            
+            <div class="error" ng-show="welcome.error">
+                <p><b><i class="icon-bolt icon-large"></i> <span translate>Unable to connect to server</span></b></p>
+                <p><span translate>Make sure that you are connected to internet, and </span><a translate>try again</a>. <span translate>If you see this error message while your connection is otherwise working, </span><a href="mailto:info@bornlocal.fi" translate>send us email</a>.</p>
+                
+            </div>
+                
+            <section ng-show="welcome.view=='nearby'" ng-hide="welcome.loading || welcome.view=='city' || welcome.districts.length>0">
+            
+                <h3 translate>Nearhood areas closeby</h3>
+               
+                <div class="pure-menu pure-menu-open">
+                
+                    <ul>
+                        <li ng-repeat="district in welcome.nearby" ng-click="welcome.changeDistrict(district)">
+                            <i class="icon-arrow-right"></i> {{district.district}}</li>
+                    </ul>
+                </div>
+                
+                <button class="pure-button pure-button-primary pure-input-1" ui-sref="welcome({view:'city'})" translate>Show all areas</button>
+                
+            </section>
+        
+            <section ng-show="welcome.view=='city' && welcome.cities.length>0">
+        
+				<h3 translate>First select a city</h3>                
+                <div class="pure-menu pure-menu-open">
+                    <ul>
+                        <li ng-repeat="city in welcome.cities | orderBy:'district' | filter:'fin.'" ui-sref="welcome({view:city.district_code})">
+                            <i class="icon-plus-sign"></i> {{city.district}}</li>
+                    </ul>
+                </div>
+            
+                <p translate>Nearhood is currently available in the Capital Region in Finland. We will be expanding to new areas in the near future.</p>
+                
+                <p translate>If your neighbourhood is not in the list, do <a href="mailto:info@bornlocal.fi">send us email</a> and tell us where to expand next!</p>
+                
+            
+            </section>
+            <div
+                ng-hide="welcome.view=='city'||welcome.view=='nearby'"
+                class="wrapper pure-form"
+                >
+                <h3 translate>Select your neighbourhood</h3>
+
+                <div class="loader" ng-show="welcome.loading">
+                    <i class="icon-spinner icon-spin icon-2x"></i>
+                </div> 
+
+                <div style="padding:10px" ng-show="welcome.districts.length==0&&welcome.loading==false">
+                    Sorry, currently no neighbourhoods from this city available on Nearhood.
+                </div>
+                <section ng-show="welcome.districts.length>0">
+                    <div class="pure-menu pure-menu-open">
+                        <ul>
+                            <li ng-repeat="district in welcome.districts | orderBy:'district'"
+                                ng-click="welcome.changeDistrict(district)">
+                                <i class="icon-arrow-right"></i> {{district.district}}
+                            </li>
+                        </ul>
+                    </div>
+
+                </section>
+
+                <button 
+                    ng-hide="welcome.loading"
+                    class="pure-button pure-button-primary pure-input-1" 
+                    go-back
+                    translate>
+                    <i class="icon-arrow-left"></i> Back
+                </button>
+            </div>
+            <!-- 
+            <section ng-show="welcome.error">
+            
+                <p><span translate>Unable to locate.</span> <a translate>Please try again</a> <span>or choose area from list:</span></p>
+                
+                <div class="pure-menu pure-menu-open">
+        
+                    <ul>
+                    <div ng-repeat="city in districts.all">
+                    <li class="pure-menu-heading">{{city.city}}</li>
+                        <li ng-repeat="district in city.children"><a href="" ng-click="districts.change(district,true)"><i class="icon-arrow-right"></i> {{district.district}}</a></li>
+                    </div>
+                    </ul>
+                </div>
+
+                <p translate>Nearhood is open in selected areas, and we are adding new areas all the time. If area where you live, is not on the list, please  <a href="mailto:info@bornlocal.fi">send us email</a> and tell us where to expand next!
+                </p>
+
+            </section> -->
+        
+    		<choose-language ng-hide="welcome.loading"></choose-language>
+        
+        
+        </div>
+    </div>
+
+</div>
+
+<div id="welcome" 
+    class="{{welcome.active}}" 
+    ng-if="welcome.view==='slides'" 
+    hm-swiperight="welcome.slide(-1)" hm-swipeleft="welcome.slide(1)">
+
+    <div id="welcomeClose" ng-click="welcome.close()">
+        <i class="icon-ok-circle"></i>
+    </div>
+
+    <div id="welcomeControl">
+
+        <i class="icon-arrow-left" ng-click="welcome.slide(-1)"></i>
+        
+        <span class="indicator">
+            <i ng-repeat="icon in [0,1,2]" ng-class="{'icon-circle':welcome.slideNum==$index+1, 'icon-circle-blank':wlecome.slideNum!=$index+1}"></i>
+        </span>
+
+        <i class="icon-arrow-right" ng-click="welcome.slide(1)"></i>
+
+    </div>
+
+    <div id="welcome1" class="card content welcome">
+        <div class="wrapper">
+
+        <p translate>Nearhood is meeting place for people living in {{district.server.district.district}} – filled with events, news, services and discussions. Hooray {{district.server.district.district}}!</p>
+
+        <i class="icon-comments-alt"></i>
+
+        </div><!-- /wrapper -->
+    </div><!-- /welcome -->
+
+    <div id="welcome2" class="card content welcome">
+        <div class="wrapper">
+
+        <p translate>What's happening? Where would you go today? What is everyone talking about?</p>
+
+        <i class="icon-calendar"></i>
+
+        </div><!-- /wrapper -->
+    </div><!-- /welcome -->
+
+    <div id="welcome3" class="card content welcome">
+        <div class="wrapper">
+
+        <p translate>Discuss, buy, sell, find - {{district.server.district.district}} is listening!</p>
+
+        <i class="icon-pushpin"></i>
+
+        </div><!-- /wrapper -->
+    </div><!-- /welcome -->
+
+</div>

@@ -1,0 +1,279 @@
+<div id="messages" 
+    class="card content" 
+    swipe-for-menu
+    nh-infinite-scroll="messages.more()"
+    ng-class="{fadeout:inSubview()}"
+    threshold="100">
+
+    <div id="map-toggle" ng-show="showToggle">
+        <span class="icon-stack" ng-class="{selected:messages.mode=='map'}" ng-click="messages.reload()">
+            <i class="icon-sign-blank icon-stack-base"></i>
+            <i class="icon-refresh icon-light"></i>
+        </span>
+        <!-- 
+        <span class="icon-stack" ng-class="{selected:messages.mode=='map'}" ng-click="messages.switchMode('map')">
+            <i class="icon-sign-blank icon-stack-base"></i>
+            <i class="icon-reorder icon-light"></i>
+        </span>
+        <span class="icon-stack" ng-class="{selected:messages.mode=='list'}" ng-click="messages.switchMode('list')">
+            <i class="icon-sign-blank icon-stack-base"></i>
+            <i class="icon-reorder icon-light"></i>
+        </span> -->
+    </div>
+
+    <div class="wrapper" ng-hide="messages.mode!='list'">
+
+		<h1><span class="district">{{district.current.district}}</span></h1>
+        
+        <section id="messageList">
+
+
+			<div class="reload" ng-click="messages.reload()">
+			    <i class="icon-repeat"></i>
+			</div>
+
+            <div ng-switch on="params.type">
+				<h2 ng-switch-when="all">
+					<span translate>All the latest messages from the neighbourhood &amp; nearby</span>
+				</h2>
+				<h2 ng-switch-when="highlight">
+					<span translate>Most popular messages from the neighbourhood &amp; nearby</span>
+				</h2>
+				<h2 ng-switch-when="sanom">
+					<span translate>The latest updates in the neighbourhood &amp; nearby</span>
+				</h2>
+				<h2 ng-switch-when="pick">
+					<span translate>The latest local news and other picks from the Internet</span>
+				</h2>
+				<h2 ng-switch-when="classified">
+					<span translate>The latest classified ads from the neighbourhood &amp; nearby</span>
+				</h2>
+				<h2 ng-switch-when="event">
+					<span translate>Upcoming events in the neighbourhood &amp; nearby</span>
+				</h2>
+				<h2 ng-switch-when="issue">
+					<span translate>The latest issue reports from the neighbourhood &amp; nearby</span>
+				</h2>
+			</div>				
+
+            <article 
+                class="singlesanom tile" 
+                ng-class="message.type" 
+                ng-repeat="message in messages.all" 
+                ng-click="message.open($event)"
+                data-inappbrowser="true">
+            
+                <header class="articlehead">
+
+                    <span ng-switch on="message.type">
+                        <span ng-switch-when="sanom"><b><i class="icon-comment"></i></b><h4 translate>Update</h4></span>
+                        <span ng-switch-when="classified"><b><i class="icon-pushpin"></i></b><h4 translate>Classified ad</h4></span>
+                        <span ng-switch-when="event"><b><i class="icon-calendar"></i></b><h4 translate>Event</h4>  </span>                             
+                        <span ng-switch-when="pick"><b><i class="icon-quote-right"></i></b><h4 translate>Pick</h4></span>                               
+                        <span ng-switch-when="photopick"><b><i class="icon-quote-right"></i></b><h4 translate>Pick</h4></span>
+                        <span ng-switch-when="issue"><b><i class="icon-bolt"></i></b><h4 translate>Issue</h4></span>                               
+                        <span ng-switch-default><b><i class="icon-comment"></i></b><h4 translate>Message</h4></span>
+                    </span>
+
+					<span ng-if="(message.district_code !== district.path) && (message.district)" class="neighbourinfo"> — {{message.district}}
+						<span ng-if="(message.district_code | isArray) && (message.district_code.length > 1)">+{{message.district_code.length}}</span>
+					</span>
+                    
+                </header>
+                <section class="msg">
+
+                    <div class="extImg" ng-if="message.type == 'photopick'">
+                        <i class="icon-external-link"></i>
+                        <img ng-if="message.photo.url" ng-src="{{message.photo.url}}" />                    
+                    </div>
+                    
+                    <img ng-if="(message.type !== 'photopick') && message.photo.url" 
+                        ng-class="{quoteAndImage: message.url}" 
+                        ng-src="{{message.photo.url}}" />
+                
+                    <div ng-if="message.url && (message.type !== 'photopick')">
+                    
+                        <blockquote ng-class="{quoteAndImage: message.photo.url}">
+                        <h3 ng-if="message.urldata.title">{{message.urldata.title}}</h3>
+                        <p ng-if="message.urldata.description !== ''">
+                            <span ng-bind-html="message.urldata.description | truncate:200 | noHTML | nl2br"></span>
+                        </p>
+                        <cite open-external ng-click="openurl(message,$event)">{{message.url|truncate:34:''}} <i class="icon-external-link"></i></cite>
+                        </blockquote>
+                        
+                    </div>
+                    
+                    <p ng-if="message.type!=='issue'" ng-bind-html="message.sanom | truncate:320 | noHTML | nl2br">
+                    </p>
+
+                    
+                    <div ng-if="message.type == 'classified'">
+                        <h3>{{message.classified_type_lang}}</h3>
+                        <p ng-bind-html = "message.classified_content | truncate:320 | noHTML | nl2br"></p>
+                        <p class="contact" ng-if="message.classified_contact" ng-bind-html="message.classified_contact|linky"></p>
+                    </div>
+                    
+                    <section class="vevent" ng-if="message.type == 'event'">
+                    
+                        <h3 class="summary" ng-if="message.event_name">{{message.event_name}}</h3>
+                        <p class="description" ng-if="message.event_description !== ''">
+                            <span ng-bind-html="message.event_description | truncate:320 | noHTML | nl2br"></span>
+                        </p>
+                        <div class="event-data">
+                            <time datetime="" class="dtstart"><i class="icon-calendar"></i><i class="icon-arrow-right"></i> <span class="date">{{message.event_date | date:"EEE d'.'M'.'" }}</span>  <span ng-hide="message.no_start_hour"><i class="icon-time"></i>{{message.event_date | date:"HH':'mm" }}</span></time>
+                        <div class="event-data" ng-if="message.event_end_date">                        
+                            <time datetime="" class="dtend"><i class="icon-calendar"></i><i class="icon-arrow-left"></i> <span class="date">{{message.event_end_date | date:"EEE d'.'M'.'" }}</span> <span ng-hide="message.no_end_hour"><i class="icon-time"></i>{{message.event_end_date | date:"HH':'mm" }}</span></time>                        
+                        </div>
+						<div class="event-data event-recurring" ng-if="message.recurring">                        
+						    <i class="icon-repeat"></i> <span ng-if="message.recurrence == 'weekly'"><span translate>weekly</span></span> <span ng-if="message.recurrence == 'biweekly'" ><span translate>bi-weekly</span></span> {{message.last_recurring_date | date:"EEE d'.'M'.'" }} <span translate>until</span>
+						</div>            
+                        
+                        <p class="location" ng-if="message.event_location"><i class="icon-map-marker"></i> {{message.event_location}}</p>
+                        </div>
+                        
+                    </section>
+                    
+                    <div ng-if="message.type == 'issue'">
+                        <p ng-bind-html="message.description | truncate:320 | noHTML | nl2br"></p>
+                        <p class="location"><i class="icon-map-marker"></i> {{message.address_string}}</p>
+                        <p class="status" ng-class="message.issue_status"><span ng-if="message.issue_status == 'closed'"><i class="icon-check"></i> <span translate>Closed</span></span><span ng-if="message.issue_status == 'open'"><i class="icon-check-empty"></i> <span translate>Open</span></span></p>
+                    </div>
+                    
+                </section>
+                <section class="author">
+                                    
+                    <img ng-if="message.profile_photo_thumb_url" ng-src="{{message.profile_photo_thumb_url}}" />
+                    <ng-if="message.username">{{message.username}}</ng-if><ng-if="message.pseudonym">{{message.pseudonym}}</ng-if>
+                    
+                    <time class="pubdate" datetime="" pubdate="">
+                    {{message.time | date:"d'.'M'.' HH':'mm" }}
+                    </time>            
+
+                </section>
+                <section ng-if="message.last_comment_data" class="comment-highlight">
+                    <p><i class="icon-reply icon-large"></i> 
+                        <span ng-bind-html="message.last_comment_data.comment | truncate:200 | noHTML | nl2br"></span>
+                    </p>
+                    <p class="author">
+                        <ng-if="message.last_comment_data.username">{{message.last_comment_data.username}}</ng-if>
+                        <ng-if="message.last_comment_data.pseudonym">{{message.last_comment_data.pseudonym}}</ng-if> 
+                        <time class="pubdate">{{message.last_comment_data.time | date:"d'.'M'.' HH':'mm" }}</time>
+                    </p>
+                </section>
+
+                <footer class="reactions">
+                    <section class="comments" ng-show="message.num_comments > 0">
+                        <b class="comments_num">{{message.num_comments}}</b> <i class="icon-reply pull-right"></i><!-- TODO: no comments -->
+                    </section>
+                        
+                    <section class="likes">
+                        <div class="native_like">
+
+                            <b ng-if="message.stars > 0" class="like_nums">{{message.stars}}</b>
+                            
+                            <span 
+                                ng-if="message.liked" 
+                                ng-click="message.unlike($event)"
+                                >
+                                <i class="icon-star" style="color:rgb(255, 184, 0)"></i>
+                                <span class="action" translate>Liked</span>
+                            </span>    
+                            <span 
+                                ng-if="!message.liked" 
+                                ng-click="message.like($event)">
+                                <i class="icon-star-empty"></i>
+                                <span class="action" translate>Like</span>
+                            </span>
+
+                        </div>
+
+                    </section>
+
+                </footer>
+
+                <section 
+                    ng-show="message.loginPrompt&&!user.loggedIn" 
+                    class="loginPrompt" 
+                    ng-click="messages.login($event)">
+                    <span translate>To like messages, you need to be logged in. <b>Log in or register here</b></span>
+                </section>
+                <a 
+                    ng-if="message.more_from_same"
+                    stop-propagation
+                    ng-click="messages.injectMoreFromUser(message,$index)"
+                    class="more-from-same">
+                    <b><i class="icon-plus"></i> {{message.more_from_same.num}}</b>
+                    <span translate>messages from the same user</span>
+                </a>
+            
+            </article>
+            
+            <div class="loader {{messages.params.type}}" ng-show="messages.loading"><i class="icon-spinner icon-spin icon-2x"></i></div> 
+            
+            <div class="error" ng-show="messages.all.length==0&&messages.loaded">
+                <p><b><span translate>Unable to load messages</span></b></p>
+            </div>
+
+            <div class="error" ng-show="messages.error">
+            
+            	<div class="logo"><img src="./img/logo_elements.png" /></div>
+            
+            	<p><span translate><b>It's a bit quiet here still, so it looks like you were the first to arrive.</b> The rest of the neighbours are bound to arrive soon,</span> <a ng-click="openNewMsg()"><span translate>why not leave a message to them already!</span></a></p>
+            	
+            </div>
+            
+        </section>
+
+
+    </div><!-- /wrapper -->
+
+    <div 
+        ng-controller="nhMapCtrl as map"
+        ng-init="messages.map = map"
+        ng-show="messages.mode=='map';" 
+        style="position:absolute;height:100%;width:100%;">
+
+        <div id="map-help" ng-click="map.helper=!map.helper;">?</div>
+        <div id="map-helper" class="popup" ng-show="map.helper">
+            <div class="content">
+                <h1>About the map</h1>
+                <p>The map displays only those messages that have an exact location attached to them. To see all the messages, witch back to the list mode from the top right.</p>
+                <div class="x icon-remove" ng-click="map.helper=false"></div>
+            </div>
+        </div>
+        <div class="popup {{map.popup.type}}" id="message-popup" ng-show="map.showPopup">
+            <div class="content">
+                <h1>{{map.popup.type}}</h1>
+                <p>{{map.popup.sanom | limitTo:200}}</p>
+                <div class="go" ng-click="map.expandPopup()">read the whole message <i class="icon-arrow-right"></i></div>
+                <div class="x icon-remove" ng-click="map.showPopup=false"></div>
+            </div>
+        </div>
+        <leaflet
+            ng-if="map.inited"
+            defaults="map.defaults"
+            markers="map.pins"
+            center="map.center"
+            height="100%" 
+            width="100%">
+        </leaflet>
+    </div>
+
+    
+</div><!-- /content -->
+<div hm-tap="openNewMsg()" ng-class="{'on':on}" new-message id="newMessageButton">
+    <div class="wrapper1">
+        <div class="wrapper2">
+            <span class="icon-stack">
+              <i class="icon-comment icon-stack-base"></i>
+              <i class="icon-plus icon-light"></i>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+<div id="sideview" sideview ui-view ng-class="{'hascontent':stateLevel>0}"></div>
+
+
+

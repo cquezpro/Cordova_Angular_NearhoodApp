@@ -1,0 +1,26 @@
+<div>
+
+	<i class="field-icon icon-tag"></i>
+	<select required class="has-icon" ng-model="message.classified_type" ng-options="type.key as type.name for type in classifiedTypes" style="margin-bottom:0">
+		<option value="">{{'choose classified class' | translate}}</option>
+	</select>
+
+	<textarea required ng-model="message.classified_content" placeholder="{{'Selling your washing machine? Found a lost bike? Leave a classified ad and reach everyone in the neighbourhood!'|translate}}" sk-focus-handler></textarea>
+
+	<i class="field-icon icon-reply"></i>
+	<input type="text" 
+		class="has-icon"
+		ng-model="message.classified_contact" 
+		placeholder="{{'contact information'|translate}}"
+		sk-focus-handler>
+	<div style="width:100%;height:10px"></div>
+	
+	<i class="field-icon icon-calendar"></i>
+	<select class="has-icon" ng-model="message.classified_ttl" ng-options="type.key as type.name for type in classifiedTtls">
+	</select>
+
+	<div style="width:100%;height:10px"></div>
+	
+	<location-block messagedata="message"></location-block>
+		
+</div>

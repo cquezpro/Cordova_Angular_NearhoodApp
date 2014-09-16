@@ -1,0 +1,1010 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Nearhood mobile application\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Miemo Penttinen <miemo@bornlocal.fi>\n"
+"Language-Team: Born Local Oy <info@bornlocal.fi>\n"
+"Language: fi_FI\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.9\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: app/views/info.html
+msgid "\"Local is the new global\""
+msgstr "\"Local is the new global\"\t"
+
+#: app/views/messages.html
+msgid ""
+"<b>It's a bit quiet here still, so it looks like you were the first to "
+"arrive.</b> The rest of the neighbours are bound to arrive soon,"
+msgstr ""
+"<b>Taisit ehtiä ensimmäisenä paikalle, kun täällä on vielä vähän hiljaista.</"
+"b> Kyllä ne muutkin naapurit sieltä perille löytävät,"
+
+#: app/views/info.html
+msgid ""
+"<b>Nearhood is meeting place for all neighbourhood - on web and mobile.</b> "
+"Nearhood gets together everything related to your neighbourhood. You can "
+"find events, offers, lost &amp; found items, most discussed subjects and "
+"latest local news. Inside gossip and whatever else you want to tell your "
+"neighbours."
+msgstr ""
+"<b>Nearhood on kaupunginosan kohtauspaikka verkossa ja kännykässä. </b> "
+"Nearhood kerää kaikki kaupunginosan kuulumiset samaan osoitteeseen. Löydät "
+"sieltä menot, tarjoukset, kadonneet tavarat, puhutuimmat jutut ja "
+"viimeisimmät uutiset. Sisäpiirin vinkit ja kaiken sen, mitä itse haluat "
+"kertoa."
+
+#: app/views/user.html
+msgid ""
+"<b>You are not logged in to Nearhood.</b> You can read the messages without "
+"logging in, but to participate yourself, please log in"
+msgstr ""
+"<b>Et ole kirjautunut sisään.</b> Voit lukea viestejä, mutta kirjaudu sisään "
+"osallistuaksesi keskusteluun"
+
+#: app/views/districts.html app/views/welcome.html
+msgid "<i class=\"icon-arrow-left\"></i> Back"
+msgstr "<i class=\"icon-arrow-left\"></i> Takaisin"
+
+#. sharing to facebook
+#. sharing to facebook
+#: app/views/new-message.html app/views/single.html
+msgid "<i class=\"icon-facebook-sign icon-large\"></i> sharing"
+msgstr "<i class=\"icon-facebook-sign icon-large\"></i>-jako"
+
+#: app/views/districts.html
+msgid "<i class=\"icon-plus-sign\"></i> Show all areas"
+msgstr "<i class=\"icon-plus-sign\"></i> Näytä kaikki alueet"
+
+#: app/views/partials/new-issue.html
+msgid ""
+"<p>Antamasi palaute voidaan julkaista Helsingin kaupungin internetsivuilla "
+"ja/tai muissa medioissa. Älä sisällytä palautteeseesi yksityisyyden suojan "
+"alaista tietoa, kuten henkilön nimiä, henkilötunnuksia tms. Palaute voidaan "
+"jättää julkaisematta tai sitä voidaan muokata ennen julkaisua.</p>\n"
+"\t\t\t<p>Jos palautteeseesi sisältyy valokuva tai video, sen täytyy olla "
+"sinun ottamasi. Jos kuvassa esiintyy tunnistettavia henkilöitä, täytyy "
+"sinulla lisäksi olla heiltä lupa kuvan julkaisemiseen. Lähettämällä kuvan "
+"palautteen osana vakuutat, että sinulla on edellä mainittu lupa kuvan "
+"julkaisuun.</p>\n"
+"\t\t\t<p>Lähettämällä kuvan, videon tai muuta tekijänoikeuslain suojaamaa "
+"sisältöä palautteen osana, luovutat kaikki tekijän- ym. oikeutesi sisältöön "
+"(mukaan lukien edelleenluovutus- ja muunteluoikeuden) Helsingin kaupungille</"
+"p>"
+msgstr ""
+"<p>Antamasi palaute voidaan julkaista Helsingin kaupungin internetsivuilla "
+"ja/tai muissa medioissa. Älä sisällytä palautteeseesi yksityisyyden suojan "
+"alaista tietoa, kuten henkilön nimiä, henkilötunnuksia tms. Palaute voidaan "
+"jättää julkaisematta tai sitä voidaan muokata ennen julkaisua.</p>\n"
+"\t\t\t<p>Jos palautteeseesi sisältyy valokuva tai video, sen täytyy olla "
+"sinun ottamasi. Jos kuvassa esiintyy tunnistettavia henkilöitä, täytyy "
+"sinulla lisäksi olla heiltä lupa kuvan julkaisemiseen. Lähettämällä kuvan "
+"palautteen osana vakuutat, että sinulla on edellä mainittu lupa kuvan "
+"julkaisuun.</p>\n"
+"\t\t\t<p>Lähettämällä kuvan, videon tai muuta tekijänoikeuslain suojaamaa "
+"sisältöä palautteen osana, luovutat kaikki tekijän- ym. oikeutesi sisältöön "
+"(mukaan lukien edelleenluovutus- ja muunteluoikeuden) Helsingin kaupungille</"
+"p>"
+
+#: app/views/new-location.html
+msgid "ADD PLACE"
+msgstr "LISÄÄ PAIKKA"
+
+#: app/views/info.html
+msgid "About Nearhood"
+msgstr "Tietoa palvelusta"
+
+#: app/views/partials/new-event.html
+msgid "Add ending time"
+msgstr "Lisää päättymisaika"
+
+#: app/views/new-location.html
+msgid "Add new place in current location"
+msgstr "Lisää uusi paikka tämänhetkiseen sijaintiisi"
+
+#: app/views/new-location.html
+msgid "Add new place to this location"
+msgstr "Lisää uusi paikka tähän pisteeseen"
+
+#: app/scripts/directives/photo-uploader.js
+msgid "Add photo to message"
+msgstr "Lisää kuva viestiin"
+
+#: app/views/messages.html
+msgid "All the latest messages from the neighbourhood &amp; nearby"
+msgstr "Kaikki uusimmat viestit lähialueelta"
+
+#: app/views/registered.html
+msgid ""
+"And remember to show your support to your neighbours by clicking <b>\"Like"
+"\"</b> when you find something worth liking..."
+msgstr ""
+"Ja muista osoittaa tukesi naapureillesi klikkaamalla <b>\"Tykkää\"</b> kun "
+"löydät jotain tykkäämisen arvoista..."
+
+#: app/scripts/directives/new-classified-dre.js
+msgid "Buy"
+msgstr "Osta"
+
+#. title 'Lisää kuva sanomaan'
+#: app/views/new-location.html app/scripts/directives/photo-uploader.js
+msgid "Cancel"
+msgstr "Peruuta"
+
+#: app/views/districts.html
+msgid "Change district"
+msgstr "Vaihda aluetta"
+
+#: app/views/districts.html
+msgid "Choose a city"
+msgstr "Valitse kaupunki"
+
+#. title 'Lisää kuva sanomaan'
+#: app/scripts/directives/photo-uploader.js
+msgid "Choose from gallery"
+msgstr "Valitse galleriasta"
+
+#: app/views/districts.html
+msgid "Choose your area"
+msgstr "Valitse alue"
+
+#: app/views/messages.html app/views/single.html
+msgid "Classified ad"
+msgstr "Ilmoitus"
+
+#: app/scripts/directives/menu.js
+msgid "Classifieds"
+msgstr "Ilmoitukset"
+
+#: app/views/messages.html
+msgid "Closed"
+msgstr "Käsitelty"
+
+#: app/views/single.html
+msgid "Comment"
+msgstr "Kommentti"
+
+#: app/views/single.html
+msgid "Commenting is possible after logging in"
+msgstr "Voit kommentoida kirjauduttuasi sisään"
+
+#: app/views/search-location.html
+msgid "Create <b>{{srcCtrl.search}}</b> at current location"
+msgstr "Lisää <b>{{srcCtrl.search}}</b> tämänhetkiseen sijaintiisi"
+
+#: app/views/register.html
+msgid "Create a password for yourself"
+msgstr "Valitse itsellesi salasana"
+
+#: app/views/login.html
+msgid "Create an account"
+msgstr "Tee tunnukset"
+
+#: app/views/new-location.html
+msgid "Didn't find what you're looking for?"
+msgstr "Eikö etsimääsi paikkaa löytynyt?"
+
+#: app/views/welcome.html
+msgid ""
+"Discuss, buy, sell, find - {{district.server.district.district}} is "
+"listening!"
+msgstr ""
+"Keskustele, osta, myy, vaihda - {{district.server.district.district}} "
+"kuuntelee!"
+
+#: app/scripts/directives/photo-uploader.js
+msgid "Do you want to take a new photo or choose from gallery?"
+msgstr "Haluatko ottaa uuden kuvan vai valita galleriasta?"
+
+#: app/views/single.html
+msgid "Downloading message failed"
+msgstr "Viestin lataus epäonnistui"
+
+#: app/views/new-location.html
+msgid "Drag the pointer to fine tune the location if necessary"
+msgstr "Hienosäädä tarvittaessa sijaintia siirtämällä merkkiä kartalla"
+
+#: app/views/login.html
+msgid "Email address"
+msgstr "Sähköpostiosoitteesi"
+
+#: app/views/messages.html app/views/single.html
+msgid "Event"
+msgstr "Tapahtuma"
+
+#: app/views/partials/new-event.html
+msgid "Event name"
+msgstr "Tapahtuman nimi"
+
+#: app/views/partials/new-event.html
+msgid "Event recurs"
+msgstr "Tapahtuma toistuu"
+
+#: app/scripts/directives/menu.js
+msgid "Events"
+msgstr "Tapahtumat"
+
+#: app/scripts/directives/new-classified-dre.js
+msgid "Expires in a month"
+msgstr "Ilmoitus voimassa kuukauden"
+
+#: app/scripts/directives/new-classified-dre.js
+msgid "Expires in a week"
+msgstr "Ilmoitus voimassa viikon"
+
+#: app/scripts/directives/new-classified-dre.js
+msgid "Expires in three months"
+msgstr "Ilmoitus voimassa kolme kuukautta"
+
+#: app/views/feedback.html
+msgid "Feedback"
+msgstr "Palaute"
+
+#: app/views/welcome.html
+msgid "First select a city"
+msgstr "Valitse ensin kaupunki"
+
+#: app/scripts/directives/new-issue-dre.js
+msgid "Forests"
+msgstr "Metsät"
+
+#: app/scripts/directives/new-classified-dre.js
+msgid "Give"
+msgstr "Annetaan"
+
+#: app/views/registered.html
+msgid "Go to your Nearhood..."
+msgstr "Tervetuloa Nearhoodiin!"
+
+#: app/scripts/directives/new-issue-dre.js
+msgid "Graffiti removal"
+msgstr "Töhryjen poisto"
+
+#: app/views/info.html
+msgid "Hand made in Kruununhaka, Laajasalo, Mäntyharju and Sofia"
+msgstr "Tehty käsityönä Kruununhaassa, Laajasalossa, Mäntyharjulla ja Sofiassa"
+
+#: app/views/login.html
+msgid "Haven't registered yet?"
+msgstr "Ei tunnuksia?"
+
+#: app/scripts/directives/menu.js
+msgid "Highlights"
+msgstr "Suositut"
+
+#: app/views/user.html
+msgid "If you haven't yet registered, you can do it here!"
+msgstr "Jos et ole vielä rekisteröitynyt, voit tehdä sen tästä!"
+
+#: app/views/welcome.html
+msgid ""
+"If you see this error message while your connection is otherwise working,"
+msgstr "Jos näet tämän virheilmoituksen, mutta yhteytesi toimii muuten,"
+
+#: app/views/register.html
+msgid ""
+"If you want to create an account for your firm or other organisation, visit "
+"the Nearhood website at nearhood.net"
+msgstr ""
+"Jos haluat luoda tunnuksen yritykselle tai muulle organisaatiolle, vieraile "
+"verkkosivustollamme osoitteessa nearhood.net"
+
+#: app/views/welcome.html
+msgid ""
+"If your neighbourhood is not in the list, do <a href=\"mailto:info@bornlocal."
+"fi\">send us email</a> and tell us where to expand next!"
+msgstr ""
+" Jos oma asuinalueesi ei ole listalla, lähetä <a href=\"mailto:"
+"info@bornlocal.fi\">lähetä meille sähköpostia</a> ja kerro mihin haluat "
+"palvelun laajentuvan!"
+
+#: app/scripts/directives/new-issue-dre.js
+msgid "Info signs"
+msgstr "Kyltit ja opasteet"
+
+#: app/views/messages.html app/views/single.html
+msgid "Issue"
+msgstr "Vikavinkki"
+
+#: app/scripts/directives/menu.js
+msgid "Issues"
+msgstr "Vikavinkit"
+
+#: app/scripts/directives/new-classified-dre.js
+msgid "Jobs"
+msgstr "Työpaikat"
+
+#: app/scripts/directives/menu.js
+msgid "Latest"
+msgstr "Uusimmat"
+
+#. verb
+#. verb
+#: app/views/messages.html app/views/single.html
+msgid "Like"
+msgstr "Tykkää"
+
+#. verb
+#: app/views/messages.html app/views/single.html
+msgid "Liked"
+msgstr "Tykätty"
+
+#: app/views/single.html app/views/user.html
+msgid "Log in"
+msgstr "Kirjaudu sisään"
+
+#: app/views/user.html
+msgid "Log out"
+msgstr "Kirjaudu ulos"
+
+#: app/views/login.html
+msgid "Login"
+msgstr "Kirjaudu sisään"
+
+#: app/views/login.html
+msgid "Login with Facebook-account"
+msgstr "Kirjaudu Facebook-tunnuksilla"
+
+#: app/views/login.html
+msgid "Login with Nearhood account"
+msgstr "Kirjaudu Nearhood-tunnuksilla"
+
+#: app/scripts/directives/new-classified-dre.js
+msgid "Lost & Found"
+msgstr "Löytötavarat"
+
+#: app/views/welcome.html
+msgid "Make sure that you are connected to internet, and"
+msgstr "Varmistu, että verkkoyhteytesi toimii, ja "
+
+#: app/views/messages.html app/views/single.html
+msgid "Message"
+msgstr "Viesti"
+
+#: app/views/messages.html
+msgid "Most popular messages from the neighbourhood &amp; nearby"
+msgstr "Suosituimmat viestit lähialueelta"
+
+#: app/views/new-location.html
+msgid "Name of the place:"
+msgstr "Paikan nimi:"
+
+#: app/views/info.html
+msgid "Nearhood app"
+msgstr "Nearhood applikaatio"
+
+#: app/views/districts.html app/views/welcome.html
+msgid "Nearhood areas closeby"
+msgstr "Nearhood-alueet lähistöllä"
+
+#: app/views/welcome.html
+msgid ""
+"Nearhood is currently available in the Capital Region in Finland. We will be "
+"expanding to new areas in the near future."
+msgstr ""
+"Nearhood on tällä hetkellä käytössä pääkaupunkiseudulla. Laajennamme uusille "
+"alueille lähitulevaisuudessa."
+
+#: app/views/welcome.html
+msgid ""
+"Nearhood is meeting place for people living in {{district.server.district."
+"district}} – filled with events, news, services and discussions. Hooray "
+"{{district.server.district.district}}!"
+msgstr ""
+"Nearhood on koko kaupunginosan kohtauspaikka, täynnä tapahtumia, uutisia, "
+"palveluita ja keskusteluita! Eläköön {{district.server.district.district}}!"
+
+#: app/views/districts.html
+msgid ""
+"Nearhood is open in selected areas, and we are adding new areas all the "
+"time. If area where you live, is not on the list, please  <a href=\"mailto:"
+"info@bornlocal.fi\">send us email</a> and tell us where to expand next!"
+msgstr ""
+"Nearhood on auki valituilla alueilla, ja avaamme jatkuvasti uusi alueita. "
+"Jos oma kaupunginosasi ei ole listalla, lähetä <a href=\"mailto:"
+"info@bornlocal.fi\">lähetä meille sähköpostia</a> ja kerro mihin haluat "
+"palvelun laajentuvan!"
+
+#: app/views/info.html
+msgid ""
+"Nearhood is operated and offered by<br>Born Local from Helsinki<br>\n"
+"    Born Local Ltd – info@bornlocal.fi – bornlocal.fi"
+msgstr ""
+"Nearhood-palvelun tarjoaa<br/>helsinkiläinen Born Local Oy<br/>Born Local Oy "
+"– info@bornlocal.fi – bornlocal.fi"
+
+#: app/views/welcome.html
+msgid "Nearhood is the place where the whole neighbourhood meets"
+msgstr "Nearhood on koko kaupunginosan kohtauspaikka"
+
+#: app/scripts/directives/new-classified-dre.js
+msgid "Neighbour help"
+msgstr "Naapuriapu"
+
+#: app/scripts/directives/new-classified-dre.js
+msgid "Non-commercial services"
+msgstr "Ei-kaupalliset palvelut"
+
+#: app/views/new-location.html
+msgid ""
+"Only add places that have a relevance to larger public and are not temporary "
+"in nature."
+msgstr ""
+"Lisääthän vain paikkoja joilla on merkitystä muillekin kuin vain itsellesi. "
+"Vältä sellaisten paikkojen luomista jotka ovat olemassa vain hetkellisesti."
+
+#: app/views/messages.html
+msgid "Open"
+msgstr "Avoin"
+
+#: app/scripts/directives/new-classified-dre.js
+msgid "Other"
+msgstr "Muut"
+
+#: app/scripts/directives/new-issue-dre.js
+msgid "Other issue to be fixed"
+msgstr "Muu korjattava asia"
+
+#: app/scripts/directives/new-issue-dre.js
+msgid "Parks"
+msgstr "Puistot"
+
+#: app/views/login.html
+msgid "Password"
+msgstr "Salasanasi"
+
+#: app/views/messages.html app/views/single.html
+msgid "Pick"
+msgstr "Poiminta"
+
+#: app/scripts/directives/menu.js
+msgid "Picks"
+msgstr "Poiminnat"
+
+#: app/scripts/directives/new-issue-dre.js
+msgid "Playgrounds and sports parks"
+msgstr "Leikki- ja liikuntapuistot"
+
+#: app/scripts/controllers/new-message-ctrl.js
+msgid "Please add a message or a photo"
+msgstr "Viestissä pitää olla joko kuva tai tekstiä"
+
+#: app/scripts/controllers/new-message-ctrl.js
+msgid "Please add location"
+msgstr "lisää sijainti"
+
+#: app/views/single.html
+msgid "Please try again"
+msgstr "Yritä uudelleen"
+
+#: app/views/partials/new-issue.html
+msgid ""
+"Pothole or a broken street light on your home street? Make an issue report"
+msgstr ""
+"Monttu tiessä, katulamppu pimeänä tai puiston penkki rikki? Jätä vikavinkki "
+"katujen ja viheralueiden kunnosta, se päätyy suoraan Helsingin kaupungin "
+"tietoon."
+
+#: app/views/partials/new-issue.html
+msgid ""
+"Pothole or a broken street light on your home street? Make an issue report "
+"and reach the city officials!"
+msgstr ""
+"Monttu tiessä, katulamppu pimeänä tai puiston penkki rikki? Jätä vikavinkki "
+"katujen ja viheralueiden kunnosta, se päätyy suoraan Helsingin kaupungin "
+"tietoon."
+
+#: app/scripts/directives/new-issue-dre.js
+msgid "Potholes"
+msgstr "Katujen kunto"
+
+#: app/views/info.html
+msgid "Read more about Nearhood"
+msgstr "Lue lisää palvelusta"
+
+#: app/views/register.html app/views/user.html
+msgid "Register"
+msgstr "Rekisteröidy"
+
+#: app/views/register.html
+msgid "Register with Facebook"
+msgstr "Rekisteröidy Facebook-tunnuksilla"
+
+#: app/views/register.html
+msgid "Register with email and password"
+msgstr "Rekisteröidy sähköpostilla ja salasanalla"
+
+#: app/views/new-location.html
+msgid "Related to any of these places?"
+msgstr "Lähistöllä olevat paikat"
+
+#: app/scripts/directives/new-issue-dre.js
+msgid "Sanitation violation"
+msgstr "Roskaaminen"
+
+#: app/views/new-location.html
+msgid ""
+"Search for place names and street addresses above or drag the pin on the map"
+msgstr "Etsi paikkoja ja katuosoitteita yltä tai siirrä merkkiä kartalla"
+
+#: app/views/welcome.html
+msgid "Select your neighbourhood"
+msgstr "Valitses kaupunginosasi"
+
+#: app/scripts/directives/new-classified-dre.js
+msgid "Sell"
+msgstr "Myydään"
+
+#: app/views/partials/new-classified.html
+msgid ""
+"Selling your washing machine? Found a lost bike? Leave a classified ad and "
+"reach everyone in the neighbourhood!"
+msgstr ""
+"Pesukone myynnissä tai fillari löytynyt? Jätä ilmoitus ja tavoita koko "
+"kaupunginosa!"
+
+#: app/views/new-message.html
+msgid "Send <i class=\"icon-chevron-sign-right\"></i>"
+msgstr "Lähetä <i class=\"icon-chevron-sign-right\"></i>"
+
+#: app/views/single.html
+msgid "Send comment"
+msgstr "Lähetä kommentti"
+
+#: app/views/info.html
+msgid "Send feedback"
+msgstr "Lähetä palautetta"
+
+#: app/views/feedback.html
+msgid "Send your feedback"
+msgstr "Lähetä palautetta"
+
+#: app/views/new-message.html
+msgid "Sending"
+msgstr "Lähetetään"
+
+#: app/views/welcome.html
+msgid "Show all areas"
+msgstr "Näytä kaikki alueet"
+
+#: app/scripts/controllers/feedback-ctrl.js
+msgid "Something went wrong :/"
+msgstr "Tapahtui virhe. :/"
+
+#: app/views/new-location.html
+msgid "Sorry, but we were unable to locate your device."
+msgstr "Valitettavasti puhelimesi paikantaminen ei onnistunut."
+
+#: app/scripts/directives/new-classified-dre.js
+msgid "Swap"
+msgstr "Vaihdetaan"
+
+#. title 'Lisää kuva sanomaan'
+#: app/scripts/directives/photo-uploader.js
+msgid "Take a photo"
+msgstr "Ota kuva"
+
+#: app/scripts/controllers/feedback-ctrl.js
+msgid "Thank you for your feedback!"
+msgstr "Kiitos palautteestasi!"
+
+#: app/views/messages.html
+msgid "The latest classified ads from the neighbourhood &amp; nearby"
+msgstr "Uusimmat ilmoitukset lähialueelta"
+
+#: app/views/messages.html
+msgid "The latest issue reports from the neighbourhood &amp; nearby"
+msgstr "Uusimmat vikavinkit lähialueelta"
+
+#: app/views/messages.html
+msgid "The latest local news and other picks from the Internet"
+msgstr "Uusimmat paikalliset uutis- ja tiedotepoiminnat muualta verkosta"
+
+#: app/views/messages.html
+msgid "The latest updates in the neighbourhood &amp; nearby"
+msgstr "Uusimmat sanomat lähialueelta"
+
+#: app/scripts/controllers/new-message-ctrl.js
+msgid "The message should be at least 5 characters"
+msgstr "Viestin minimipituus on 5 merkkiä"
+
+#: app/views/single.html
+msgid ""
+"To like comments you need to be logged in. <b>Log in or register here!</b>"
+msgstr ""
+"Tykätäksesi kommenteista sinun tulee olla kirjautuneena. <b>Kirjaudu sisään "
+"tai rekisteröidy tästä</b>"
+
+#: app/views/single.html
+msgid ""
+"To like messages you need to be logged in. <b>Log in or register here!</b>"
+msgstr ""
+"Tykätäksesi viesteistä sinun tulee olla kirjautuneena. <b>Kirjaudu sisään "
+"tai rekisteröidy tästä</b>"
+
+#: app/views/messages.html
+msgid ""
+"To like messages, you need to be logged in. <b>Log in or register here</b>"
+msgstr ""
+"Tykätäksesi viesteistä sinun tulee olla kirjautuneena. <b>Kirjaudu sisään "
+"tai rekisteröidy tästä</b>"
+
+#: app/scripts/directives/new-issue-dre.js
+msgid "Traffic signs"
+msgstr "Liikennemerkit"
+
+#: app/views/welcome.html
+msgid "Unable to connect to server"
+msgstr "Yhteyttä palvelimelle ei saatu muodostettua"
+
+#: app/views/messages.html
+msgid "Unable to load messages"
+msgstr "Viestien lataaminen epäonnistui"
+
+#: app/views/districts.html
+msgid "Unable to locate"
+msgstr "Paikantaminen epäonnistui"
+
+#. verb
+#: app/views/single.html
+msgid "Unlike"
+msgstr "En tykkääkään"
+
+#: app/views/messages.html
+msgid "Upcoming events in the neighbourhood &amp; nearby"
+msgstr "Tulevat tapahtumat lähialueella"
+
+#. Message class, not a verb
+#: app/views/messages.html app/views/single.html
+msgid "Update"
+msgstr "Sanoma"
+
+#: app/scripts/directives/menu.js
+msgid "Updates"
+msgstr "Sanomat"
+
+#: app/views/new-location.html
+msgid ""
+"Use <div class=\"x\"><i class=\"icon-remove\" style=\"color: white\"></i></"
+"div> to do a new search."
+msgstr ""
+"Näpäytä <div class=\"x\"><i class=\"icon-remove\"></i></div> hakeaksesi "
+"uudestaan."
+
+#: app/views/search-location.html
+msgid ""
+"Use <div class=\"x\"><i class=\"icon-remove\"></i></div> to clear the "
+"current location."
+msgstr ""
+"<div class=\"x\"><i class=\"icon-remove\"></i></div> tyhjentää nykyisen "
+"sijainnin."
+
+#: app/views/single.html
+msgid "Use an alias"
+msgstr "Nimimerkki"
+
+#: app/views/new-location.html
+msgid "Use this location"
+msgstr "Käytä tätä sijaintia"
+
+#: app/views/user.html
+msgid "User info"
+msgstr "Käyttäjätiedot"
+
+#: app/scripts/directives/new-issue-dre.js
+msgid "Vandalism"
+msgstr "Ilkivalta"
+
+#: app/views/districts.html
+msgid "We're sorry but we were unable to locate your device."
+msgstr "Valitettavasti puhelintasi ei onnistuttu paikantamaan."
+
+#: app/views/new-location.html
+msgid ""
+"We're using just the text <b>{{ctrl.message.streetAddress}}</b> as a "
+"location, no map coordinates or place names are being saved."
+msgstr ""
+"Sijainniksi merkitään <b>{{ctrl.message.streetAddress}}</b>, koordinaatteja "
+"ei tallenneta. "
+
+#: app/views/registered.html
+msgid "Welcome!"
+msgstr "Tervetuloa!"
+
+#: app/views/welcome.html
+msgid ""
+"What's happening? Where would you go today? What is everyone talking about?"
+msgstr "Mitä tapahtuu? Mitä tehdä tänään? Mistä kaikki puhuvat?"
+
+#: app/views/new-message.html
+msgid ""
+"What's up in the neighbourhood today? Send an update and reach all the "
+"neighbours."
+msgstr ""
+"Mitä naapurustoon tänään kuuluu? Bongasitko cityketun, ärsyttääkö naapuri? "
+"Lähetä sanoma ja tavoita koko kaupunginosa!"
+
+#: app/views/login.html
+msgid "Wrong email or password :/"
+msgstr "Väärä sähköposti tai salasana"
+
+#: app/views/partials/new-event.html
+msgid ""
+"Yard sale or a neighbourhood meeting next week? Create an event and invite "
+"everyone in the neighbourhood!"
+msgstr ""
+"Pihakirppis vai puistotalkoot ensi viikolla? Ilmoita tapahtuma ja tavoita "
+"koko kaupunginosa!"
+
+#: app/views/registered.html
+msgid ""
+"You can also just participate in neighbourhood discussions by commenting "
+"messages sent by others"
+msgstr ""
+"Voit myös osallistua naapuruston keskusteluihin kommentoimalla muiden "
+"lähettämiä viestejä"
+
+#: app/views/registered.html
+msgid ""
+"You can now start sending your updates to your neighbourhood through "
+"Nearhood. The topics are up to you, they can be anything - from shopping "
+"tips to garage sales, irritating neighbours or pictures of blossoming "
+"flowers."
+msgstr ""
+"Voit nyt ryhtyä viestimään naapurustosi kanssa Nearhood-palvelussa. Sana on "
+"vapaa, avaa keskustelu mistä tahansa isosta tai pienestä paikallisesta "
+"asiasta  - ostosvinkeistä kirpputoreihin, kukkaloistosta ärsyttäviin "
+"naapureihin. "
+
+#: app/views/register.html
+msgid ""
+"You can register by using your Facebook account or with your email address"
+msgstr ""
+"Voit rekisteröityä joko käyttämällä Facebook-tunnuksiasi tai "
+"sähköpostiosoitettasi."
+
+#: app/views/search-location.html
+msgid ""
+"You can search for place names like <b>Railway station, Greenfield park</b> "
+"or use addresses like <b>Main Street 23</b>"
+msgstr ""
+"Voit etsiä paikannimiä, kuten <b>Rautatieasema tai Kaisaniemen puisto</b> "
+"tai osoitteita kuten <b>Mannerheimintie 12</b>"
+
+#: app/scripts/controllers/user-ctrl.js
+msgid "You have been logged out"
+msgstr "Olet nyt kirjautunut ulos"
+
+#: app/views/user.html
+msgid "You've been logged in as"
+msgstr "Olet kirjautunut sisään käyttäjänä"
+
+#: app/views/new-message.html app/views/single.html
+msgid "Your alias"
+msgstr "Nimimerkkisi"
+
+#: app/views/feedback.html
+msgid "Your email"
+msgstr "Sähköpostiosoitteesi"
+
+#: app/views/register.html
+msgid "Your email address"
+msgstr "Sähköpostiosoitteesi"
+
+#: app/views/feedback.html
+msgid "Your feedback"
+msgstr "Palautteesi"
+
+#: app/views/register.html
+msgid "Your full name"
+msgstr "Etu- ja sukunimesi"
+
+#: app/scripts/controllers/new-message-ctrl.js
+msgid "Your message was sent!"
+msgstr "Viestisi on lähetetty"
+
+#: app/views/feedback.html
+msgid "Your name"
+msgstr "Nimesi"
+
+#: app/views/districts.html
+msgid "Your recent districts"
+msgstr "Viimeisimmät alueet"
+
+#: app/views/partials/location-block.html
+msgid "add a location"
+msgstr "lisää sijainti"
+
+#: app/views/new-location.html
+msgid "add new"
+msgstr "luo uusi"
+
+#: app/scripts/directives/photo-uploader.js
+msgid "add photo"
+msgstr "lisää kuva"
+
+#: app/views/single.html
+msgid ""
+"and if it still fails <a href=\"mailto:info@bornlocal.fi\">send us email</a>"
+msgstr ""
+"ja jos se yhä epäonnistuu <a href=\"mailto:info@bornlocal.fi\">lähetä meille "
+"sähköpostia</a>"
+
+#: app/views/messages.html app/views/single.html
+msgid "bi-weekly"
+msgstr "joka toinen viikko"
+
+#: app/views/search-location.html
+msgid "cancel"
+msgstr "peru"
+
+#: app/views/partials/new-classified.html
+msgid "choose classified class"
+msgstr "valitse ilmoituksen luokka"
+
+#: app/views/partials/new-issue.html
+msgid "choose issue type"
+msgstr "valitse vikavinkin tyyppi"
+
+#: app/views/new-message.html
+msgid "classified"
+msgstr "Ilmoitus"
+
+#: app/views/single.html
+msgid "comment"
+msgstr "kommentti"
+
+#: app/views/single.html
+msgid "comments"
+msgstr "kommenttia"
+
+#: app/views/partials/new-classified.html
+msgid "contact information"
+msgstr "yhteystiedot"
+
+#: app/views/new-message.html
+msgid "event"
+msgstr "Tapahtuma"
+
+#: app/scripts/directives/new-event-dre.js
+msgid "every other week"
+msgstr "joka toinen viikko"
+
+#: app/scripts/directives/new-event-dre.js
+msgid "every week"
+msgstr "joka viikko"
+
+#: app/views/new-message.html
+msgid "issue"
+msgstr "Vikavinkki"
+
+#: app/views/districts.html
+msgid "locating"
+msgstr "paikannetaan"
+
+#: app/views/messages.html
+msgid "messages from the same user"
+msgstr "viestiä samalta käyttäjältä"
+
+#: app/views/welcome.html
+msgid "send us email"
+msgstr "lähetä meille sähköpostia"
+
+#: app/scripts/controllers/new-message-ctrl.js
+msgid "something went wrong :/"
+msgstr "Tapahtui virhe. :/"
+
+#: app/views/partials/new-issue.html
+msgid "terms for sending issue reports"
+msgstr "ehdot vikavinkkien lähettämiselle"
+
+#: app/views/welcome.html
+msgid "try again"
+msgstr "yritä uudelleen"
+
+#: app/views/messages.html app/views/partials/new-event.html
+#: app/views/single.html
+msgid "until"
+msgstr "saakka"
+
+#: app/views/new-message.html
+msgid "update"
+msgstr "Sanoma"
+
+#: app/views/new-message.html
+msgid "use an alias"
+msgstr "nimimerkki"
+
+#: app/views/messages.html app/views/single.html
+msgid "weekly"
+msgstr "viikottain"
+
+#: app/views/messages.html
+msgid "why not leave a message to them already!"
+msgstr "jätä jo ihmeessä viesti koko naapurustolle!"
+
+#: app/views/partials/menu.html
+msgid "{{item.name}}"
+msgstr "{{item.name}}"
+
+#~ msgid "Nearhood app v{{CONFIG.version}}"
+#~ msgstr "Nearhood v{{config.version}}"
+
+#, fuzzy
+#~ msgid ""
+#~ "<i class=\"icon-calendar\"></i>\n"
+#~ "\t\t\t\t<i class=\"icon-arrow-left\"></i> <span translate=\"\">Add ending "
+#~ "time</span>"
+#~ msgstr ""
+#~ "<i class=\"icon-calendar\"></i>\t\t\t<i class=\"icon-arrow-left\"></i> "
+#~ "Lisää loppumisaika"
+
+#~ msgid "Photo"
+#~ msgstr "Kuvapoiminta"
+
+#~ msgid "Please, try again"
+#~ msgstr "Yritä uudelleen"
+
+#~ msgid "and if it still doesn't work,"
+#~ msgstr "ja jos ei vieläkään onnistu"
+
+#~ msgid "You've been logged in as<br><b>{{user.service.data.name}}</b>."
+#~ msgstr ""
+#~ "Olet kirjautunut sisään käyttäjänä<br><b>{{user.service.data.name}}</b>."
+
+#, fuzzy
+#~ msgid "Change area"
+#~ msgstr "Vaihda aluetta"
+
+#, fuzzy
+#~ msgid "Current area: <b>{{district.name}}</b>"
+#~ msgstr "Valittu alue: <b>{{district.name}}</b>"
+
+#, fuzzy
+#~ msgid "Email"
+#~ msgstr "Sähköposti"
+
+#, fuzzy
+#~ msgid "Full name"
+#~ msgstr "Koko nimi"
+
+#, fuzzy
+#~ msgid "How do you like Nearhood?<br> Questions or comments?"
+#~ msgstr "Mitä pidät palvelusta?<br/> Kysymyksiä tai kommentteja?"
+
+#, fuzzy
+#~ msgid ""
+#~ "Nearfood, nearstores, nearservices! Find all that is from {{district."
+#~ "name}}!"
+#~ msgstr "Lähiruokaa, lähikaupppoja, lähipalveluita! "
+
+#~ msgid ""
+#~ "Nearhood is not yet open anywhere close to you, but you can choose from "
+#~ "the list below:"
+#~ msgstr ""
+#~ "Nearhood ei ole vielä avoinna lähelläsi, mutta voit kokeilla palvelua "
+#~ "jollain alta löytyvistä alueista: "
+
+#, fuzzy
+#~ msgid "Register to Nearhood"
+#~ msgstr "Rekisteröidy palveluun"
+
+#~ msgid "Write your classified ad here"
+#~ msgstr "Kirjoita ilmoituksesi tähän"
+
+#~ msgid "Write your event announcement here"
+#~ msgstr "Kirjoita tapahtumasi kuvaus tähän"
+
+#, fuzzy
+#~ msgid "alias"
+#~ msgstr "nimimerkki"
+
+#~ msgid "contact information (eg. telephone number or email address)"
+#~ msgstr "yhteystiedot (esim. puhelinnumero tai sähköpostiosoite)"
+
+#~ msgid "Choose a district"
+#~ msgstr "Valitse alue"

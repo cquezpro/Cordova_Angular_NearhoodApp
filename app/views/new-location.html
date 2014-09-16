@@ -1,0 +1,129 @@
+<div class="view" id="location-search" scrolltop sk-parent>
+	<div ng-hide="ctrl.locationLoaded" class="loader"><i class="icon-spinner icon-spin icon-2x"></i></div> <div class="content" ng-if="ctrl.error" style="color:#fff">
+		<span translate>Sorry, but we were unable to locate your device.</span>
+	</div>
+	<div class="content" ng-if="ctrl.locationLoaded&&!ctrl.error" style="margin-top:10px; margin-left: 10px; margin-right: 10px;">
+		
+		<div class="search-btn" ng-hide="ctrl.addingNewPlace">
+			<div class="icon" ng-show="ctrl.message.poi">
+				<div ng-if="ctrl.message.poi.icon" class="svg">
+					<img ng-src="{{'https://nearhood.net'+ctrl.message.poi.icon}}">
+				</div>
+				<i ng-if="!ctrl.message.poi.icon" class="icon-map-marker"></i>
+			</div>
+			<div class="icon" ng-show="!ctrl.message.poi&&ctrl.message.newplace.length==0&&ctrl.message.address.length>0">
+				<i class="icon-map-marker"></i>
+			</div>
+			<div class="icon" ng-show="!ctrl.message.poi&&ctrl.message.newplace.length>0">
+				<div class="plus">+</div>
+				<!-- <i class="icon-font" style="font-size:18px;top:8px"></i> -->	
+			</div>
+			
+			<!-- <i class="icon-map-marker" ng-hide="ctrl.message.poi"></i> -->
+
+			<div class="input" ui-sref=".search({search:ctrl.message.address})" ng-show="ctrl.message.newplace.length==0 && !ctrl.message.poi">{{ctrl.message.address | firstpart}}</div>
+
+			<div class="input" ui-sref=".search({search:''})" ng-show="ctrl.message.newplace.length>0">{{ctrl.message.newplace}}</div>
+
+			<div class="input" ui-sref=".search({search:ctrl.message.poi.name})" ng-show="ctrl.message.poi&&ctrl.message.newplace.length==0">{{ctrl.message.poi.name}}</div>
+
+			<div class="x" ui-sref=".search({search:''})"><i class="icon-remove"></i></div>
+		</div>
+
+		<div ng-hide="ctrl.message.poi==null&&ctrl.message.streetAddress">
+			
+			<div class="clearfix"></div>
+			<div class="mapholder">
+				<div class="maplabel" translate ng-hide="ctrl.addingNewPlace">
+					Search for place names and street addresses above or drag the pin on the map
+				</div>
+				<div class="maplabel" translate ng-show="ctrl.addingNewPlace">
+					Drag the pointer to fine tune the location if necessary
+				</div>
+				<leaflet 
+					ng-if="!ctrl.isAndroid40&&afterDelay" 
+					center="ctrl.mapCenter" 
+					defaults="ctrl.mapDefaults" 
+					markers="ctrl.mapMarkers" id="issueMap" height="250px" width="100%">
+				</leaflet>
+			</div>
+		</div>
+		
+		<div class="blank" ng-show="ctrl.message.poi==null&&ctrl.message.streetAddress">
+			<p translate>
+				We're using just the text <b>{{ctrl.message.streetAddress}}</b> as a location, no map coordinates or place names are being saved.
+			</p>
+			<div translate style="margin-bottom:25px" translate>
+				Use <div class="x"><i class="icon-remove" style="color: white"></i></div> to do a new search.
+			</div>
+		</div>
+
+		<div class="places" ng-show="ctrl.places.length>0&&ctrl.addingNewPlace==false">
+			<h3 ng-hide="ctrl.searchFocus" translate>Related to any of these places?</h3>
+			<a class="add-new pure-button" ng-click="ctrl.addNewPlace()">
+				<i class="icon-plus-sign"></i>
+				<span translate>add new</span>
+			</a>
+			<div class="clearfix"></div>
+			
+			<div class="pure-menu pure-menu-open">			
+				<ul>
+				    <li class="place" ng-repeat="place in ctrl.places | limitTo:30" ng-click="ctrl.choosePlace(place)">
+				        
+				        <div class="icon">
+				        	<img ng-src="{{'https://nearhood.net'+place.icon}}">
+				        </div>
+				        <div class="name">{{place.name}}</div>
+				        
+				    </li>
+				</ul>		
+			</div>
+			
+			
+			
+		</div>
+		<div class="list-footer places" ng-hide="ctrl.addingNewPlace" style="margin-bottom:80px; color:#fff; margin-top:20px">
+			<span translate>Didn't find what you're looking for?</span><br>
+			<a class="add-new" ng-click="ctrl.addNewPlace()">
+				<i class="icon-plus-sign"></i>
+				<span translate>Add new place in current location</span>
+			</a>
+		</div>
+
+		<div class="places new-place" ng-show="ctrl.addingNewPlace">
+			<h3 translate>Add new place to this location</h3>
+			<a class="pure-button" ng-click="ctrl.addingNewPlace=false;ctrl.message.newplace='';">cancel</a>
+			<div class="clearfix"></div>
+			<p translate>Only add places that have a relevance to larger public and are not temporary in nature.</p>
+			<div class="label" translate>Name of the place:</div>
+			<form class="pure-form">
+				<input type="text" ng-model="ctrl.message.newplace" sk-focus-handler>
+			</form>
+		</div>
+	</div>
+
+	<div ui-view class="typebg {{ctrl.message.type}}"></div>
+
+	<footer ng-hide="ctrl.addingNewPlace">
+		<div class="pad">
+			<div class="back-btn" ng-click="ctrl.removeLocation();ctrl.done();" translate>Cancel</div>
+			<a 
+            	class="pure-button pure-button-primary pure-input-1" 
+            	ng-click="ctrl.done()"
+            	ng-hide="ctrl.sendingStatus.sending" translate>
+            	Use this location
+        	</a>
+		</div>
+	</footer>
+	<footer ng-show="ctrl.addingNewPlace && skfocus==false">
+		<div class="pad">
+			<div class="back-btn" ng-click="ctrl.cancelNewPlace()"><i class="icon-arrow-left"></i></div>
+			<a 
+				ng-disabled="ctrl.loadingLocation"
+            	class="pure-button pure-button-primary pure-input-1" 
+            	ng-click="ctrl.addedNewPlace()" translate>
+            	ADD PLACE
+        	</a>
+		</div>
+	</footer>
+</div>

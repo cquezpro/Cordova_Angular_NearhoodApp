@@ -1,0 +1,143 @@
+// ====== LAYOUT ===
+@siteWidth: 80%;
+@siteMaxWidth: 1325px;
+@singleSanomWidth: 260px; //default width for non-JS browsers
+
+@sideMenuItemHeight: 45px;
+
+@statusBarFix: 20px;
+
+// ====== ICONS ====
+@import "../bower_components/font-awesome/less/font-awesome.less";
+@FontAwesomePath:    "../bower_components/font-awesome/font";
+
+// ====== TYPOGRAPHY ===
+
+@baseFontSize: 16; //px
+@baseLineHeight: 20; //px
+@baseFontSizePc: 100%*(@baseFontSize/16);
+@baseLineHeightEm: (@baseLineHeight / @baseFontSize) + 0em;
+
+
+@font-face {
+  font-family: "Lato";
+  src: url("../styles/font/Lato-Light.ttf");
+  font-weight: 300;
+}
+@font-face {
+    font-family: "Lato";
+    src: url("../styles/font/Lato-Regular.ttf");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Lato";
+    src: url("../styles/font/Lato-Bold.ttf");
+    font-weight: 700;
+}
+@font-face {
+    font-family: "Lato";
+    src: url("../styles/font/Lato-Black.ttf");
+    font-weight: 900;
+}
+
+.fontFamily {
+    font-family: "Lato",sans-serif;
+}
+
+.sansSerif() {
+    .fontFamily;
+    font-weight: 400;
+}
+
+.sansSerif300() {
+    .fontFamily;
+    font-weight: 300;
+}
+
+.sansSerif400() {
+    .fontFamily;
+    font-weight: 400;
+}
+
+.sansSerif600() {
+    .fontFamily;
+    font-weight: 700;
+}
+
+.sansSerif700() {
+    .fontFamily;
+    font-weight: 900;
+}
+
+.sansSerif800() {
+    .fontFamily;
+    font-weight: 900;
+}
+
+
+// ====== COLORS ===
+@background: #ebedf0;
+@bgshadow: hsla(0,0%,0%,0.2);
+@bgshadow2: hsla(0,0%,0%,0.4);
+@bggray: #eee;
+@headershadow: hsla(0,0%,30%,0.2);
+
+@normal: #555;
+@lightnormal: #777;
+@inverse: #fff;
+@light1: #999;
+@light2: #ddd;
+@dark1: #ddd;
+@dark2: #bbb;
+@dark3: #666;
+@dark4: #222;
+@accent1: #1CA821; //#0088cc
+@accent2: #0088cc; //#eda430
+@accent2light: #FFFADB;
+@accent1bg: desaturate(lighten(@accent1, 57%), 60%);
+@accent3: #F1534D; //#FF5952 #f3644c
+@accent4: #1ABDBD;
+@orange: #e37626;
+
+@color_sanom: @accent1;
+@bgcolor_sanom: @accent1bg;
+@color_event: @accent2;
+@bgcolor_event: desaturate(lighten(@color_event, 40%), 40%);
+@color_classified: @accent3;
+@bgcolor_classified: desaturate(lighten(@color_classified, 55%), 50%);
+@color_issue: #3C5A86;
+@bgcolor_issue: desaturate(lighten(@color_issue, 55%), 50%);
+@color_pick: #fc802d;
+@color_photopick: @accent4;
+
+@color_sidemenubg: #fff;
+@color_sidemenusanom: #00A0F0;
+
+@color_plus: rgb(0, 204, 8);
+@color_minus: rgb(204, 82, 0);
+
+@color_error: rgb(255, 61, 0);
+@color_error_bg: lighten(rgb(255, 61, 0), 45%);
+
+@newmsg_elem_bg: rgba(255, 255, 255, 0.2);
+@newmsg_elem_border: rgba(255, 255, 255, 0.5);
+
+
+// ====== ELEMENTS ===
+
+.lightBorderTop() {
+    border-top: 1px dotted @light2;
+}
+
+.lightBorderBottom() {
+    border-bottom: 1px dotted @light2;
+}
+
+.mediumBorderTop() {
+    border-top: 1px dotted @dark3;
+}
+
+.mediumBorderBottom() {
+    border-bottom: 1px dotted @dark3;
+}
+

@@ -1,0 +1,45 @@
+<section id="register">
+
+    <header id="topBar">
+    
+        <div id="closeModal" class="cornerButton" ng-click="closeSideview()">
+            <span class="icon-stack">
+              <i class="icon-sign-blank icon-stack-base"></i>
+              <i class="icon-arrow-left icon-light"></i>
+            </span>
+        </div>
+    
+        <h2 translate>Register</h2>
+    
+    </header>
+    
+    <section class="modal">
+    <div class="wrapper pure-form">
+    <div id="registerPane">
+    
+        <p translate>You can register by using your Facebook account or with your email address</p>
+        
+        
+        <button class="pure-input-1 pure-button pure-button-primary" ng-click="register.fbRegister()"><i class="icon-facebook-sign icon-large"></i> <span translate>Register with Facebook</span></button>
+        
+        <h3 translate>Register with email and password</h3>
+        
+        <form id="registerForm">
+            <fieldset class="pure-group">
+                <input class="pure-input-1" type="text" ng-model="register.data.full_name" focus-handler placeholder="{{'Your full name'|translate}}" name="name" />
+                <input class="pure-input-1" type="email" ng-model="register.data.email" focus-handler placeholder="{{'Your email address'|translate}}" name="email" />
+                <input class="pure-input-1" type="password" ng-model="register.data.password" focus-handler placeholder="{{'Create a password for yourself'|translate}}" />
+            </fieldset>
+                
+                <button class="pure-input-1 pure-button pure-button-primary" ng-click="register.register()" translate>Register</button>
+                
+        </form>
+        
+        <p translate>If you want to create an account for your firm or other organisation, visit the Nearhood website at nearhood.net 
+        </p>
+        
+    </div>
+    </div>
+    </section>
+
+</section>
